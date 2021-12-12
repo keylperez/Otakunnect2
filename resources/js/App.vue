@@ -1,6 +1,8 @@
 <template>
-    <Header />
-    <router-view />
+    <div class="flex flex-col h-full">
+        <Header />
+        <router-view />
+    </div>
 </template>
 
 <script>
@@ -12,4 +14,9 @@ export default {
 };
 </script>
 
-<style></style>
+<style>
+#app,
+body {
+    height: 100%;
+}
+</style>

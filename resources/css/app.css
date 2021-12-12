@@ -1,4 +1,35 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap");
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+body {
+    background-image: url(../img/home/OtakuWallpaper.jpg);
+    overflow: overlay;
+    overflow-x: hidden;
+}
+
+/* ===== Scrollbar CSS ===== */
+/* Firefox */
+* {
+    scrollbar-width: auto;
+    scrollbar-color: rgba(0, 0, 0, 0.301);
+    font-family: "Montserrat", sans-serif;
+    font-weight: 700;
+}
+
+/* Chrome, Edge, and Safari */
+*::-webkit-scrollbar {
+    width: 10px;
+}
+
+*::-webkit-scrollbar-track {
+    background: #ffffff00;
+}
+
+*::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 0.3);
+    border-radius: 42px;
+    /* border: 6px solid rgba(255, 255, 255, 0); */
+}

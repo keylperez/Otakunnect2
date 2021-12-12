@@ -7,6 +7,21 @@ const routes = [
         name: "Home",
         component: Home,
     },
+    {
+        path: "/afk",
+        name: "Afk",
+        component: () => import("../views/Afk.vue"),
+    },
+    {
+        path: "/login",
+        name: "Login",
+        component: () => import("../views/Login.vue"),
+    },
+    {
+        path: "/signup",
+        name: "Signup",
+        component: () => import("../views/Signup.vue"),
+    },
     // {
     //     path: "/item/:name",
     //     name: "Item",
