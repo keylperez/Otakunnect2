@@ -12,9 +12,11 @@
                 "
             >
                 <div class="flex justify-start lg:w-0 lg:flex-1">
-                    <router-link to="/">
-                        <h1 class="text-6xl text-primary">Otakunnect</h1>
-                    </router-link>
+                    <div>
+                        <h1 class="text-6xl text-primary drop-shadow-xl">
+                            Otakunnect
+                        </h1>
+                    </div>
                 </div>
                 <div class="-mr-2 -my-2 md:hidden">
                     <button
@@ -38,8 +40,8 @@
                 <nav class="hidden md:flex space-x-10">
                     <div class="relative">
                         <!-- Item active: "text-gray-900", Item inactive: "text-gray-500" -->
-                        <button
-                            type="button"
+                        <router-link
+                            to="/"
                             class="
                                 text-gray-500
                                 group
@@ -54,10 +56,11 @@
                                 focus:ring-offset-2
                                 focus:ring-primary-light
                             "
+                            exact
                             aria-expanded="false"
                         >
                             Home
-                        </button>
+                        </router-link>
 
                         <!--
             'Solutions' flyout menu, show/hide based on flyout menu state.
@@ -71,8 +74,8 @@
           -->
                     </div>
 
-                    <a
-                        href="#"
+                    <router-link
+                        to="/store"
                         class="
                             text-base
                             font-medium
@@ -85,9 +88,9 @@
                         "
                     >
                         Stores
-                    </a>
-                    <a
-                        href="#"
+                    </router-link>
+                    <router-link
+                        to="/category"
                         class="
                             text-base
                             font-medium
@@ -100,12 +103,12 @@
                         "
                     >
                         Category
-                    </a>
+                    </router-link>
 
                     <div class="relative">
                         <!-- Item active: "text-gray-900", Item inactive: "text-gray-500" -->
-                        <button
-                            type="button"
+                        <router-link
+                            to="/contact"
                             class="
                                 text-gray-500
                                 group
@@ -123,7 +126,7 @@
                             aria-expanded="false"
                         >
                             Contact
-                        </button>
+                        </router-link>
 
                         <!--
             'More' flyout menu, show/hide based on flyout menu state.

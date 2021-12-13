@@ -7,7 +7,7 @@
                     shadow-2xl shadow-gray-500
                     h-96
                     w-72
-                    hover:scale-110
+                    hover:scale-110 hover:cursor-pointer
                     duration-200
                 "
             >
@@ -24,7 +24,7 @@
                             <h3 class="text-4xl">{{ item.name }}</h3>
                         </div>
                         <div class="ml-1">
-                            <h5 class="text-gray-400">₱{{ item.price }}</h5>
+                            <h5 class="text-gray-500">₱{{ item.price }}</h5>
                         </div>
                     </div>
                 </div>

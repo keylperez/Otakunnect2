@@ -1,15 +1,26 @@
 <template>
-    <div class="w-full">
+    <div
+        class="bg-contain bg-fixed relative"
+        :style="{
+            'background-image': `url(${bannerURL})`,
+        }"
+    >
         <div>
-            <img src="https://i.imgur.com/yDShAdn.png" alt="" />
+            <img :src="bannerURL" alt="banner" class="opacity-0" />
         </div>
         <div
-            class="bg-contain bg-fixed"
+            class="bg-contain bg-fixed shadow-2xl shadow-gray-400"
             :style="{
-                'background-image': 'url(https://i.imgur.com/6ZVkxJ9.jpg)',
+                'background-image':
+                    'url(../../img/home/OtakuWallpaper-gary.jpg)',
             }"
         >
             <div class="mx-5">
+                <div class="mx-5">
+                    <div class="pt-10">
+                        <h1 class="text-6xl">Items for you</h1>
+                    </div>
+                </div>
                 <div class="">
                     <CardItem
                         :item="{
@@ -26,7 +37,14 @@
 
 <script>
 import CardItem from "../components/CardItem.vue";
+import { ref } from "vue";
 export default {
+    setup() {
+        const bannerURL = ref("../../img/home/OtakunnectBanner.png");
+        return {
+            bannerURL,
+        };
+    },
     components: {
         CardItem,
     },

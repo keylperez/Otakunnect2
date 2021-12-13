@@ -3,6 +3,11 @@ import Home from "../views/Home.vue";
 
 const routes = [
     {
+        path: "/:catchAll(.*)",
+        name: "404",
+        component: () => import("../components/404.vue"),
+    },
+    {
         path: "/",
         name: "Home",
         component: Home,
@@ -22,6 +27,21 @@ const routes = [
         name: "Signup",
         component: () => import("../views/Signup.vue"),
     },
+    {
+        path: "/store",
+        name: "Store",
+        component: () => import("../views/Stores.vue"),
+    },
+    {
+        path: "/category",
+        name: "Category",
+        component: () => import("../views/Category.vue"),
+    },
+    {
+        path: "/contact",
+        name: "Contact",
+        component: () => import("../views/contact.vue"),
+    },
     // {
     //     path: "/item/:name",
     //     name: "Item",
@@ -35,6 +55,7 @@ const routes = [
 
 const router = createRouter({
     history: createWebHistory(process.env.BASE_URL),
+    linkActiveClass: "font-bold",
     routes,
 });
 
