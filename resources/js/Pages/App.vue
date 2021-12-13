@@ -1,16 +1,18 @@
 <template>
     <div class="flex flex-col h-full">
         <Header />
-        <router-view />
+        <slot />
     </div>
 </template>
 
 <script>
-import Header from "./components/Header.vue";
+import Header from "../Shared/Header.vue";
+// import { Link } from "@inertiajs/inertia-vue3";
 export default {
-    components: {
+    Shared: {
         Header,
     },
+    props: { name: String },
 };
 </script>
 

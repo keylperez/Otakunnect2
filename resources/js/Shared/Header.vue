@@ -40,8 +40,8 @@
                 <nav class="hidden md:flex space-x-10">
                     <div class="relative">
                         <!-- Item active: "text-gray-900", Item inactive: "text-gray-500" -->
-                        <router-link
-                            to="/"
+                        <Link
+                            href="/"
                             class="
                                 text-gray-500
                                 group
@@ -60,7 +60,7 @@
                             aria-expanded="false"
                         >
                             Home
-                        </router-link>
+                        </Link>
 
                         <!--
             'Solutions' flyout menu, show/hide based on flyout menu state.
@@ -73,42 +73,53 @@
               To: "opacity-0 translate-y-1"
           -->
                     </div>
-
-                    <router-link
-                        to="/store"
-                        class="
-                            text-base
-                            font-medium
-                            text-gray-500
-                            hover:text-gray-900
-                            focus:outline-none
-                            focus:ring-2
-                            focus:ring-offset-2
-                            focus:ring-primary-light
-                        "
-                    >
-                        Stores
-                    </router-link>
-                    <router-link
-                        to="/category"
-                        class="
-                            text-base
-                            font-medium
-                            text-gray-500
-                            hover:text-gray-900
-                            focus:outline-none
-                            focus:ring-2
-                            focus:ring-offset-2
-                            focus:ring-primary-light
-                        "
-                    >
-                        Category
-                    </router-link>
+                    <div class="relative">
+                        <Link
+                            href="/store"
+                            class="
+                                text-gray-500
+                                group
+                                rounded-md
+                                inline-flex
+                                items-center
+                                text-base
+                                font-medium
+                                hover:text-gray-900
+                                focus:outline-none
+                                focus:ring-2
+                                focus:ring-offset-2
+                                focus:ring-primary-light
+                            "
+                        >
+                            Stores
+                        </Link>
+                    </div>
+                    <div class="relative">
+                        <Link
+                            href="/category"
+                            class="
+                                text-gray-500
+                                group
+                                rounded-md
+                                inline-flex
+                                items-center
+                                text-base
+                                font-medium
+                                hover:text-gray-900
+                                focus:outline-none
+                                focus:ring-2
+                                focus:ring-offset-2
+                                focus:ring-primary-light
+                            "
+                        >
+                            Category
+                        </Link>
+                    </div>
 
                     <div class="relative">
                         <!-- Item active: "text-gray-900", Item inactive: "text-gray-500" -->
-                        <router-link
-                            to="/contact"
+                        <Link
+                            href="/contact"
                             class="
                                 text-gray-500
                                 group
@@ -126,7 +137,7 @@
                             aria-expanded="false"
                         >
                             Contact
-                        </router-link>
+                        </Link>
 
                         <!--
             'More' flyout menu, show/hide based on flyout menu state.
@@ -150,8 +161,8 @@
                         lg:w-0
                     "
                 >
-                    <router-link
-                        to="/login"
+                    <Link
+                        href="/login"
                         class="
                             whitespace-nowrap
                             text-base
@@ -166,9 +177,9 @@
                         "
                     >
                         Sign in
-                    </router-link>
-                    <router-link
-                        to="/signup"
+                    </Link>
+                    <Link
+                        href="/signup"
                         class="
                             ml-8
                             whitespace-nowrap
@@ -193,8 +204,47 @@
                         "
                     >
                         Sign up
-                    </router-link>
+                    </Link>
                 </div>
+                <!-- <div
+                    class="
+                        hidden
+                        md:flex
+                        items-center
+                        justify-end
+                        md:flex-1
+                        lg:w-0
+                    "
+                >
+                    <Link
+                        href="/logout"
+                        method="post"
+                        as="button"
+                        class="
+                            ml-8
+                            whitespace-nowrap
+                            inline-flex
+                            items-center
+                            justify-center
+                            px-4
+                            py-2
+                            border border-transparent
+                            rounded-md
+                            shadow-sm
+                            text-base
+                            font-medium
+                            text-white
+                            bg-primary
+                            hover:bg-primary-light hover:text-gray-900
+                            duration-300
+                            focus:outline-none
+                            focus:ring-2
+                            focus:ring-offset-2
+                            focus:ring-primary-light
+                        "
+                        >Signout</Link
+                    >
+                </div> -->
             </div>
         </div>
     </div>

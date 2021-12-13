@@ -417,8 +417,27 @@ Ensure the default browser behavior of the `hidden` attribute.
   --tw-shadow: 0 0 #0000;
   --tw-shadow-colored: 0 0 #0000;
 }
+
+.drop-shadow-xl{
+  --tw-blur: var(--tw-empty,/*!*/ /*!*/);
+  --tw-brightness: var(--tw-empty,/*!*/ /*!*/);
+  --tw-contrast: var(--tw-empty,/*!*/ /*!*/);
+  --tw-grayscale: var(--tw-empty,/*!*/ /*!*/);
+  --tw-hue-rotate: var(--tw-empty,/*!*/ /*!*/);
+  --tw-invert: var(--tw-empty,/*!*/ /*!*/);
+  --tw-saturate: var(--tw-empty,/*!*/ /*!*/);
+  --tw-sepia: var(--tw-empty,/*!*/ /*!*/);
+  --tw-drop-shadow: var(--tw-empty,/*!*/ /*!*/);
+  --tw-filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
+}
 .relative{
   position: relative;
+}
+.inset-0{
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  left: 0px;
 }
 .my-3{
   margin-top: 0.75rem;
@@ -474,6 +493,9 @@ Ensure the default browser behavior of the `hidden` attribute.
 }
 .h-full{
   height: 100%;
+}
+.h-screen{
+  height: 100vh;
 }
 .h-96{
   height: 24rem;
@@ -590,6 +612,10 @@ Ensure the default browser behavior of the `hidden` attribute.
 .border-transparent{
   border-color: transparent;
 }
+.bg-secondary-light{
+  --tw-bg-opacity: 1;
+  background-color: rgb(255 255 255 / var(--tw-bg-opacity));
+}
 .bg-primary-light{
   --tw-bg-opacity: 1;
   background-color: rgb(246 227 153 / var(--tw-bg-opacity));
@@ -637,6 +663,20 @@ Ensure the default browser behavior of the `hidden` attribute.
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
 }
+.pt-10{
+  padding-top: 2.5rem;
+}
+.text-center{
+  text-align: center;
+}
+.text-5xl{
+  font-size: 3rem;
+  line-height: 1;
+}
+.text-9xl{
+  font-size: 8rem;
+  line-height: 1;
+}
 .text-4xl{
   font-size: 2.25rem;
   line-height: 2.5rem;
@@ -649,14 +689,6 @@ Ensure the default browser behavior of the `hidden` attribute.
   font-size: 1rem;
   line-height: 1.5rem;
 }
-.text-9xl{
-  font-size: 8rem;
-  line-height: 1;
-}
-.text-5xl{
-  font-size: 3rem;
-  line-height: 1;
-}
 .text-2xl{
   font-size: 1.5rem;
   line-height: 2rem;
@@ -667,21 +699,21 @@ Ensure the default browser behavior of the `hidden` attribute.
 .font-bold{
   font-weight: 700;
 }
-.text-gray-400{
+.text-gray-500{
   --tw-text-opacity: 1;
-  color: rgb(156 163 175 / var(--tw-text-opacity));
+  color: rgb(107 114 128 / var(--tw-text-opacity));
 }
 .text-primary{
   --tw-text-opacity: 1;
   color: rgb(226 183 20 / var(--tw-text-opacity));
 }
+.text-gray-400{
+  --tw-text-opacity: 1;
+  color: rgb(156 163 175 / var(--tw-text-opacity));
+}
 .text-gray-900{
   --tw-text-opacity: 1;
   color: rgb(17 24 39 / var(--tw-text-opacity));
-}
-.text-gray-500{
-  --tw-text-opacity: 1;
-  color: rgb(107 114 128 / var(--tw-text-opacity));
 }
 .text-white{
   --tw-text-opacity: 1;
@@ -721,6 +753,14 @@ Ensure the default browser behavior of the `hidden` attribute.
   --tw-shadow-color: #6b7280;
   --tw-shadow: var(--tw-shadow-colored);
 }
+.shadow-gray-400{
+  --tw-shadow-color: #9ca3af;
+  --tw-shadow: var(--tw-shadow-colored);
+}
+.drop-shadow-xl{
+  --tw-drop-shadow: drop-shadow(0 20px 13px rgb(0 0 0 / 0.03)) drop-shadow(0 8px 5px rgb(0 0 0 / 0.08));
+  filter: var(--tw-filter);
+}
 .transition{
   transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-backdrop-filter;
   transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
@@ -745,7 +785,7 @@ Ensure the default browser behavior of the `hidden` attribute.
 }
 
 body {
-    background-image: url(/images/OtakuWallpaper.jpg?054441e89835df3b3be7962c56425de0);
+    background-image: url(/images/OtakuWallpaper.jpg?7e8692860978373c7e2b36b7cf222263);
     overflow: overlay;
     overflow-x: hidden;
 }
@@ -778,6 +818,10 @@ body {
   --tw-scale-x: 1.1;
   --tw-scale-y: 1.1;
   transform: var(--tw-transform);
+}
+
+.hover\:cursor-pointer:hover{
+  cursor: pointer;
 }
 
 .hover\:bg-gray-100:hover{

@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Inertia\Inertia;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +14,27 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/{any}', function () {
-    return view('app');
-})->where('any', '.*');
+// Route::get('/', function () {
+//     return Inertia::render('App');
+// });
+Route::get('/', function () {
+    return Inertia::render('Home');
+});
+Route::get('/login', function () {
+    return Inertia::render('Login');
+});
+Route::get('/signup', function () {
+    return Inertia::render('Signup');
+});
+Route::get('/store', function () {
+    return Inertia::render('Stores');
+});
+Route::get('/category', function () {
+    return Inertia::render('Category');
+});
+Route::get('/contact', function () {
+    return Inertia::render('Contact');
+});
+Route::post('/logout', function () {
+    return Inertia::render('logout');
+});
