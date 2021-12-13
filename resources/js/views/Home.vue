@@ -1,6 +1,6 @@
 <template>
     <div
-        class="bg-contain bg-fixed relative"
+        class="bg-fixed"
         :style="{
             'background-image': `url(${bannerURL})`,
         }"
