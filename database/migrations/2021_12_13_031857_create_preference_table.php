@@ -14,7 +14,7 @@ class CreatePreferenceTable extends Migration
     public function up()
     {
         Schema::create('preference', function (Blueprint $table) {
-            $table->increments('cart_id');
+            $table->increments('preference_id');
             $table->integer('user_id', false, true)->length(10);
             $table->integer('anime_id', false, true)->length(10)->nullable();
             $table->integer('category_id', false, true)->nullable();

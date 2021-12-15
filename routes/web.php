@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 use App\Http\Controllers\ItemController;
-
+use App\Http\Controllers\PreferredItemController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -19,6 +19,8 @@ use App\Http\Controllers\ItemController;
 //     return Inertia::render('App');
 // });
 Route::get('/', [ItemController::class, 'index']);
+
+// Route::get('/', [PreferredItemController::class, 'index']);
 
 Route::get('/login', function () {
     return Inertia::render('Login');
