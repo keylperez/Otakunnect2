@@ -1,5 +1,5 @@
 import { createApp, h } from "vue";
-import { createInertiaApp, Link } from "@inertiajs/inertia-vue3";
+import { createInertiaApp } from "@inertiajs/inertia-vue3";
 import { InertiaProgress } from "@inertiajs/progress";
 // import App from "./App.vue";
 import router from "./router";

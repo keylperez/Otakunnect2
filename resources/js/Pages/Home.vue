@@ -1,7 +1,7 @@
 <template>
-    <layout>
+    <Layout>
         <div
-            class="bg-fixed"
+            class="bg-fixed bg-cover"
             :style="{
                 'background-image': `url(${bannerURL})`,
             }"
@@ -22,27 +22,31 @@
                             <h1 class="text-6xl">Items for you</h1>
                         </div>
                     </div>
-                    <div class="">
+                    <div class="flex flex-wrap">
                         <CardItem
-                            :item="{
-                                name: 'Dog',
-                                price: 2,
-                                img: 'https://i.imgur.com/PJWlask.jpg',
-                            }"
+                            v-for="item in items"
+                            :key="item.product_id"
+                            :item="item"
                         />
                     </div>
                 </div>
             </div>
         </div>
-    </layout>
-</template>
+        <!-- <pre>
 
+        {{ items }}
+        </pre> -->
+    </Layout>
+</template>
 <script>
 import CardItem from "../Shared/CardItem.vue";
-import Header from "../Shared/Header.vue";
+import Layout from "../Shared/Layout.vue";
 import { ref } from "vue";
 
 export default {
+    props: {
+        items: Object,
+    },
     setup() {
         const bannerURL = ref("../../img/home/OtakunnectBanner.png");
         return {
@@ -51,7 +55,7 @@ export default {
     },
     components: {
         CardItem,
-        Header,
+        Layout,
     },
 };
 </script>

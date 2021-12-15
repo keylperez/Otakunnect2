@@ -26,5 +26,6 @@ npm run hot
 ## Stack
 
 -   Vue3
+-   Inertia.js
 -   Laravel
 -   Tailwindcss

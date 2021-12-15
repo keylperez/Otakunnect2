@@ -1,5 +1,5 @@
 <template>
-    <layout>
+    <Layout>
         <div class="flex h-max">
             <div class="flex">
                 <div
@@ -85,11 +85,16 @@
                 </div>
             </div>
         </div>
-    </layout>
+    </Layout>
 </template>
 
 <script>
-export default {};
+import Layout from "../Shared/Layout.vue";
+export default {
+    components: {
+        Layout,
+    },
+};
 </script>
 
 <style></style>

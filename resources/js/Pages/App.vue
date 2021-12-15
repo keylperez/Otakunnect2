@@ -9,7 +9,7 @@
 import Header from "../Shared/Header.vue";
 // import { Link } from "@inertiajs/inertia-vue3";
 export default {
-    Shared: {
+    components: {
         Header,
     },
     props: { name: String },

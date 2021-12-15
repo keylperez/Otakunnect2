@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
+use App\Http\Controllers\ItemController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,9 +18,8 @@ use Inertia\Inertia;
 // Route::get('/', function () {
 //     return Inertia::render('App');
 // });
-Route::get('/', function () {
-    return Inertia::render('Home');
-});
+Route::get('/', [ItemController::class, 'index']);
+
 Route::get('/login', function () {
     return Inertia::render('Login');
 });

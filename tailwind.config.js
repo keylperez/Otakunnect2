@@ -18,6 +18,9 @@ module.exports = {
                 "secondary-light": "#fff",
                 secondary: "#f7f7f7",
                 "secondary-dark": "#c4c4c4",
+                "quinary-light": "#dd8991",
+                quinary: "#ca4754",
+                "quinary-dark": "#78222b",
             },
             animation: {
                 "drawer-left": "drawer-left 1s ease-in-out",

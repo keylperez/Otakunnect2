@@ -167,7 +167,7 @@
                             whitespace-nowrap
                             text-base
                             font-medium
-                            text-gray-500
+                            text-gray-800
                             hover:text-gray-900
                             focus:outline-none
                             focus:ring-2
@@ -251,7 +251,12 @@
 </template>
 
 <script>
-export default {};
+import { Link } from "@inertiajs/inertia-vue3";
+export default {
+    components: {
+        Link,
+    },
+};
 </script>
 
 <style></style>
