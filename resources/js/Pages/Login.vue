@@ -1,4 +1,7 @@
 <template>
+    <Head>
+        <title>Login</title>
+    </Head>
     <Layout>
         <div class="flex h-max">
             <div class="flex">
@@ -6,6 +9,7 @@
                     class="
                         bg-white
                         w-1/4
+                        h-[75rem]
                         p-10
                         h-maxam
                         text-primary-dark
@@ -15,7 +19,7 @@
                     "
                 >
                     <h2 class="font-bold text-5xl">Sign in to your account</h2>
-                    <form class="flex flex-col my-10">
+                    <form @submit.prevent="submit" class="flex flex-col my-10">
                         <label for="email" class="font-medium text-2xl mt-5"
                             >Email Address</label
                         >
@@ -23,6 +27,7 @@
                             type="email"
                             id="email"
                             name="email"
+                            v-model="form.email"
                             autofocus
                             required
                             class="
@@ -42,6 +47,7 @@
                             type="password"
                             id="password"
                             name="password"
+                            v-model="form.password"
                             autofocus
                             required
                             class="
@@ -71,30 +77,53 @@
                     </form>
                 </div>
                 <div class="flex-[4]">
-                    <div>
-                        <p>
-                            We are anime fans who do our best to bring each
-                            other a lot closer. Using our website, you can set
-                            up sale for all of your weeaboo goods with ease for
-                            any upcoming conventions. At the same time, you can
-                            purchase items in advance before the conventions
-                            begins; so, you can just simply pick up the goods
-                            once you reach the shop in the convention.
-                        </p>
+                    <div class="mx-20">
+                        <div class="my-10">
+                            <p class="font-semibold text-2xl text-gray-800">
+                                We are anime fans who do our best to bring each
+                                other a lot closer. Using our website, you can
+                                set up sale for all of your weeaboo goods with
+                                ease for any upcoming conventions. At the same
+                                time, you can purchase items in advance before
+                                the conventions begins; so, you can just simply
+                                pick up the goods once you reach the shop in the
+                                convention.
+                            </p>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </Layout>
+    <!-- <pre>
+
+    {{ form }}
+    </pre> -->
 </template>
 
 <script>
-import Layout from "../Shared/Layout.vue";
+import { reactive } from "vue";
+import { Inertia } from "@inertiajs/inertia";
 export default {
-    components: {
-        Layout,
+    setup: () => {
+        const form = reactive({
+            email: "",
+            password: "",
+        });
+        const submit = () => {
+            Inertia.post("/login", form);
+        };
+        return { form, submit };
+    },
+    mounted() {
+        console.log(this.form);
     },
 };
 </script>
 
-<style></style>
+<style scoped>
+html,
+body {
+    overflow: hidden;
+}
+</style>

@@ -1,13 +1,16 @@
 <template>
+    <Head>
+        <title>Home</title>
+    </Head>
     <Layout>
         <div
-            class="bg-fixed bg-cover"
+            class="bg-fixed bg-contain"
             :style="{
                 'background-image': `url(${bannerURL})`,
             }"
         >
             <div>
-                <img :src="bannerURL" alt="banner" class="opacity-0" />
+                <img :src="bannerURL" alt="banner" class="opacity-0 w-4/5" />
             </div>
             <div
                 class="bg-contain bg-fixed shadow-2xl shadow-gray-400"
@@ -32,32 +35,22 @@
                 </div>
             </div>
         </div>
-        <!-- <pre>
+        <pre>
 
-        {{ items }}
-        </pre> -->
+        {{ prefItems }}
+        </pre>
     </Layout>
 </template>
-<script>
+<script setup>
 import CardItem from "../Shared/CardItem.vue";
-import Layout from "../Shared/Layout.vue";
+
 import { ref } from "vue";
 
-export default {
-    props: {
-        items: Object,
-    },
-    setup() {
-        const bannerURL = ref("../../img/home/OtakunnectBanner.png");
-        return {
-            bannerURL,
-        };
-    },
-    components: {
-        CardItem,
-        Layout,
-    },
-};
+defineProps: ({
+    items: Object,
+    prefItems: Object,
+});
+const bannerURL = ref("../../img/home/OtakunnectBanner.png");
 </script>
 
 <style></style>

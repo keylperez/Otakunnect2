@@ -195,8 +195,11 @@
                             font-medium
                             text-white
                             bg-primary
-                            hover:bg-primary-light hover:text-gray-900
-                            duration-300
+                            hover:bg-white
+                            hover:text-primary
+                            hover:border
+                            hover:border-primary
+                            duration-200
                             focus:outline-none
                             focus:ring-2
                             focus:ring-offset-2
@@ -251,11 +254,8 @@
 </template>
 
 <script>
-import { Link } from "@inertiajs/inertia-vue3";
 export default {
-    components: {
-        Link,
-    },
+    setup() {},
 };
 </script>
 

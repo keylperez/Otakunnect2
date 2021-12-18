@@ -1,12 +1,26 @@
 <template>
-    <Layout></Layout>
+    <Head>
+        <title>Stores</title>
+    </Head>
+    <Layout>
+        <div>
+            <StoreItem
+                v-for="item in items"
+                :key="item.store_id"
+                :item="item"
+            /></div
+    ></Layout>
 </template>
 
 <script>
-import Layout from "../Shared/Layout.vue";
+import StoreItem from "../Shared/StoreItem.vue";
 export default {
+    props: { items: Object },
     components: {
-        Layout,
+        StoreItem,
+    },
+    mounted() {
+        console.log(this.items);
     },
 };
 </script>

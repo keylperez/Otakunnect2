@@ -5,15 +5,22 @@
     </div>
 </template>
 
+//
 <script>
+// import Header from "../Shared/Header.vue";
+// // import { Link } from "@inertiajs/inertia-vue3";
+// export default {
+//     components: {
+//         Header,
+//     },
+//     props: { name: String },
+// };
+//
+</script>
+
+<script setup>
 import Header from "../Shared/Header.vue";
-// import { Link } from "@inertiajs/inertia-vue3";
-export default {
-    components: {
-        Header,
-    },
-    props: { name: String },
-};
+defineProps({ name: String });
 </script>
 
 <style>
