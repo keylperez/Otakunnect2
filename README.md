@@ -4,24 +4,67 @@ app description here
 
 ## Getting started
 
-Open terminal and run the following commands:
+Fork or Clone repo
 
-```bash
-npm i
+```
+gh repo fork https://github.com/keylperez/Otakunnect2 --clone
 
+```
+
+Install PHP dependencies:
+
+```
+composer install
+```
+
+Install NPM dependencies:
+
+```
+npm ci
+```
+
+Build assets:
+
+```
+npm run dev
+```
+
+Setup configuration:
+
+```
+cp .env.example .env
+```
+
+Generate application key:
+
+```
 php artisan key:generate
+```
 
+Make a OtaKunnect database and then do the following:
+
+Run database migrations:
+
+```
+php artisan migrate
+```
+
+Run database seeder:
+
+```
+php artisan db:seed
+```
+
+Run the dev server (the output will give the address):
+
+```
 php artisan serve
-
 ```
 
-and then open [localhost:8000](localhost:8000)
+To login, use this dummy acc:
 
-And then open a new terminal and run this command
-
-```bash
-npm run hot
-```
+-   **Username:** kris_admin@gmail.com
+-   **Password:** admin
 
 ## Stack
 
