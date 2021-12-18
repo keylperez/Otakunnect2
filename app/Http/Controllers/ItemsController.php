@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use Inertia\Inertia;
 use DB;
+use Inertia\Inertia;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ItemsController extends Controller
 {
@@ -12,6 +13,7 @@ class ItemsController extends Controller
     {
         $items = DB::select('SELECT p.product_id, p.name product_name, s.name store_name, p.img, p.price FROM product p INNER JOIN store s ON p.store_id = s.store_id');
 
+        // $user_id = Auth::id();   //temporary
         $user_id = 2;   //temporary
 
         $query = DB::select("       SELECT p.anime_id

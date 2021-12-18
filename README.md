@@ -20,7 +20,7 @@ composer install
 Install NPM dependencies:
 
 ```
-npm ci
+npm i
 ```
 
 Build assets:

@@ -19,6 +19,20 @@
                         'url(../../img/home/OtakuWallpaper-gary.jpg)',
                 }"
             >
+                <div v-if="$page.props.auth" class="mx-5">
+                    <div class="mx-5">
+                        <div class="pt-10">
+                            <h1 class="text-6xl">Preferred Items</h1>
+                        </div>
+                    </div>
+                    <div class="flex flex-wrap">
+                        <CardItem
+                            v-for="item in prefItems"
+                            :key="item.product_id"
+                            :item="item"
+                        />
+                    </div>
+                </div>
                 <div class="mx-5">
                     <div class="mx-5">
                         <div class="pt-10">

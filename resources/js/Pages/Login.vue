@@ -112,12 +112,6 @@
                                 pick up the goods once you reach the shop in the
                                 convention.
                             </p>
-                            <pre>
-                                {{ form }}
-                            </pre>
-                            <pre>
-                                {{ $page.props }}
-                            </pre>
                         </div>
                     </div>
                 </div>

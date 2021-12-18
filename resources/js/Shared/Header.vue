@@ -140,8 +140,9 @@
                         </Link>
                     </div>
                 </nav>
-                <!-- <div
-                    v-if="$page.props.auth.user.username"
+
+                <div
+                    v-if="$page.props.auth"
                     class="
                         hidden
                         md:flex
@@ -151,9 +152,57 @@
                         lg:w-0
                     "
                 >
-                    {{ $page.props.auth.user.username }}
-                </div> -->
+                    <Link
+                        href="/user"
+                        class="
+                            whitespace-nowrap
+                            text-base
+                            font-medium
+                            text-gray-800
+                            hover:text-gray-900
+                            hover:font-semibold
+                            hover:scale-105
+                            hover:drop-shadow-xl
+                            focus:outline-none
+                            focus:ring-2
+                            focus:ring-offset-2
+                            focus:ring-primary-light
+                            duration-100
+                        "
+                    >
+                        {{ user.user.username }}
+                    </Link>
+                    <Link
+                        href="/logout"
+                        method="post"
+                        as="button"
+                        class="
+                            ml-8
+                            whitespace-nowrap
+                            inline-flex
+                            items-center
+                            justify-center
+                            px-4
+                            py-2
+                            border border-transparent
+                            rounded-md
+                            shadow-sm
+                            text-base
+                            font-medium
+                            text-white
+                            bg-primary
+                            hover:bg-primary-light hover:text-gray-900
+                            duration-300
+                            focus:outline-none
+                            focus:ring-2
+                            focus:ring-offset-2
+                            focus:ring-primary-light
+                        "
+                        >Signout</Link
+                    >
+                </div>
                 <div
+                    v-else
                     class="
                         hidden
                         md:flex
@@ -171,11 +220,14 @@
                             font-medium
                             text-gray-800
                             hover:text-gray-900
+                            hover:font-semibold
+                            hover:scale-105
+                            hover:drop-shadow-xl
                             focus:outline-none
                             focus:ring-2
                             focus:ring-offset-2
                             focus:ring-primary-light
-                            duration-300
+                            duration-100
                         "
                     >
                         Sign in
@@ -211,65 +263,32 @@
                         Sign up
                     </Link>
                 </div>
-                <!-- <div
-                    class="
-                        hidden
-                        md:flex
-                        items-center
-                        justify-end
-                        md:flex-1
-                        lg:w-0
-                    "
-                >
-                    <Link
-                        href="/logout"
-                        method="post"
-                        as="button"
-                        class="
-                            ml-8
-                            whitespace-nowrap
-                            inline-flex
-                            items-center
-                            justify-center
-                            px-4
-                            py-2
-                            border border-transparent
-                            rounded-md
-                            shadow-sm
-                            text-base
-                            font-medium
-                            text-white
-                            bg-primary
-                            hover:bg-primary-light hover:text-gray-900
-                            duration-300
-                            focus:outline-none
-                            focus:ring-2
-                            focus:ring-offset-2
-                            focus:ring-primary-light
-                        "
-                        >Signout</Link
-                    >
-                </div> -->
             </div>
         </div>
     </div>
 </template>
 
 <script>
-import { reactive } from "vue";
-export default {
-    // computed: {
-    //     user() {
-    //         return this.$page.props.auth.user;
-    //     },
-    // },
-    setup() {
-        const user = reactive({ username: "keyl" });
-        return {
-            user,
-        };
-    },
-};
+// import { reactive } from "vue";
+// export default {
+//     // computed: {
+//     //     user() {
+//     //         return this.user.user;
+//     //     },
+//     // },
+//     setup() {
+//         const user = reactive({ username: "keyl" });
+//         return {
+//             user,
+//         };
+//     },
+// };
+</script>
+<script setup>
+import { computed } from "vue";
+import { usePage } from "@inertiajs/inertia-vue3";
+const user = computed(() => usePage().props.value.auth);
+console.log(user);
 </script>
 
 <style></style>

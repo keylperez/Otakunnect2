@@ -1,14 +1,15 @@
 <?php
 
 use App\Models\User;
+use Inertia\Inertia;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Route;
 // use App\Http\Controllers\PreferredItemController;
+use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ItemsController;
 use App\Http\Controllers\StoreController;
 use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\Auth\LogoutController;
 use App\Http\Controllers\Auth\SignupController;
-use Inertia\Inertia;
 // use App\Models\Items;
 
 
@@ -66,7 +67,5 @@ Route::middleware('auth')->group(function () {
         return Inertia::render('Contact');
     });
 
-    Route::post('/logout', function () {
-        return Inertia::render('logout');
-    });
+    Route::post('/logout', [LogoutController::class, 'store']);
 });
