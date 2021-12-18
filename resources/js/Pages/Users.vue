@@ -63,7 +63,8 @@
                 </tbody>
             </table>
         </div>
-        <pre>{{ users }}</pre>
+        <!-- <pre v-if="$page.props.auth.user">{{ $page.props }}</pre> -->
+        <pre>{{ $page }}</pre>
     </Layout>
 </template>
 

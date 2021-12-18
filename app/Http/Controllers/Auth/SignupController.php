@@ -1,14 +1,16 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Auth;
 
+use App\Models\User;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class SignupController extends Controller
 {
-    public function  store(Request $request)
+    public function store(Request $request)
     {
-        $attributes = Request::validate([
+        $attributes = $request->validate([
             'name' => 'required',
             'username' => 'required',
             'email' => ['required', 'email'],
@@ -17,6 +19,6 @@ class SignupController extends Controller
 
         User::create($attributes);
 
-        return redirect()->back();
+        return redirect('/users');
     }
 }

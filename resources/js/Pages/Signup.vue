@@ -172,9 +172,9 @@
                                 pick up the goods once you reach the shop in the
                                 convention.
                             </p>
-                            <!-- <pre>
+                            <pre>
                                 {{ $page.props.errors }}
-                            </pre> -->
+                            </pre>
                         </div>
                     </div>
                 </div>
@@ -199,7 +199,6 @@ const submit = () => {
 };
 
 defineProps({
-    users: Array,
     errors: Object,
 });
 </script>

@@ -9,7 +9,7 @@
                     class="
                         bg-white
                         w-1/4
-                        h-[75rem]
+                        min-h-screen
                         p-10
                         h-maxam
                         text-primary-dark
@@ -20,48 +20,71 @@
                 >
                     <h2 class="font-bold text-5xl">Sign in to your account</h2>
                     <form @submit.prevent="submit" class="flex flex-col my-10">
-                        <label for="email" class="font-medium text-2xl mt-5"
-                            >Email Address</label
-                        >
-                        <input
-                            type="email"
-                            id="email"
-                            name="email"
-                            v-model="form.email"
-                            autofocus
-                            required
-                            class="
-                                shadow-md
-                                border-2
-                                rounded-md
-                                h-10
-                                mb-2
-                                text-gray-900
-                                p-1
-                            "
-                        />
-                        <label for="password" class="font-medium text-2xl mt-5"
-                            >Password</label
-                        >
-                        <input
-                            type="password"
-                            id="password"
-                            name="password"
-                            v-model="form.password"
-                            autofocus
-                            required
-                            class="
-                                shadow-md
-                                border-2
-                                rounded-md
-                                h-10
-                                mb-2
-                                text-gray-900
-                                p-1
-                            "
-                        />
+                        <div>
+                            <label
+                                for="email"
+                                class="block font-medium text-2xl mt-1"
+                                >Email Address</label
+                            >
+                            <input
+                                type="email"
+                                id="email"
+                                name="email"
+                                v-model="form.email"
+                                autofocus
+                                class="
+                                    shadow-md
+                                    w-full
+                                    border-2
+                                    rounded-md
+                                    h-10
+                                    mb-2
+                                    text-gray-900
+                                    p-1
+                                "
+                            />
+                            <div class="h-10">
+                                <p
+                                    v-if="form.errors.email"
+                                    v-text="form.errors.email"
+                                    class="text-red-400 text-sm"
+                                ></p>
+                            </div>
+                        </div>
+                        <div>
+                            <label
+                                for="password"
+                                class="block font-medium text-2xl mt-1"
+                                >Password</label
+                            >
+                            <input
+                                type="password"
+                                id="password"
+                                name="password"
+                                v-model="form.password"
+                                autofocus
+                                class="
+                                    shadow-md
+                                    w-full
+                                    border-2
+                                    rounded-md
+                                    h-10
+                                    mb-2
+                                    text-gray-900
+                                    p-1
+                                "
+                            />
+                            <div class="h-4">
+                                <p
+                                    v-if="form.errors.password"
+                                    v-text="form.errors.password"
+                                    class="text-red-400 text-sm"
+                                ></p>
+                            </div>
+                        </div>
                         <button
                             type="submit"
+                            :disabled="form.processing"
                             class="
                                 bg-primary
                                 text-white
@@ -89,35 +112,30 @@
                                 pick up the goods once you reach the shop in the
                                 convention.
                             </p>
+                            <pre>
+                                {{ form }}
+                            </pre>
+                            <pre>
+                                {{ $page.props }}
+                            </pre>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </Layout>
-    <!-- <pre>
-
-    {{ form }}
-    </pre> -->
 </template>
 
-<script>
-import { reactive } from "vue";
-import { Inertia } from "@inertiajs/inertia";
-export default {
-    setup: () => {
-        const form = reactive({
-            email: "",
-            password: "",
-        });
-        const submit = () => {
-            Inertia.post("/login", form);
-        };
-        return { form, submit };
-    },
-    mounted() {
-        console.log(this.form);
-    },
+<script setup>
+import { useForm } from "@inertiajs/inertia-vue3";
+
+const form = useForm({
+    email: "",
+    password: "",
+});
+
+const submit = () => {
+    form.post("/login");
 };
 </script>
 

@@ -35,10 +35,6 @@
                 </div>
             </div>
         </div>
-        <pre>
-
-        {{ prefItems }}
-        </pre>
     </Layout>
 </template>
 <script>
@@ -46,17 +42,19 @@ import CardItem from "../Shared/CardItem.vue";
 import { ref } from "vue";
 
 export default {
-    components: {
-        CardItem,
-    },
-
     props: {
         items: Object,
         prefItems: Object,
     },
     setup() {
         const bannerURL = ref("../../img/home/OtakunnectBanner.png");
-        return { bannerUrl };
+
+        return {
+            bannerURL,
+        };
+    },
+    components: {
+        CardItem,
     },
 };
 </script>

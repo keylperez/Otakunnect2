@@ -1,54 +1,60 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
-use Inertia\Inertia;
-// use App\Http\Controllers\PreferredItemController;
-// use App\Http\Controllers\Auth\SignupController;
-use App\Http\Controllers\StoreController;
 use App\Models\User;
-// use App\Models\Items;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Route;
+// use App\Http\Controllers\PreferredItemController;
 use App\Http\Controllers\ItemsController;
+use App\Http\Controllers\StoreController;
+use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\Auth\SignupController;
+use Inertia\Inertia;
+// use App\Models\Items;
 
 
-Route::get('/', [ItemsController::class, 'index']);
 
-Route::get('/login', function () {
-    return Inertia::render('Login');
-});
-
+Route::get('/login', [LoginController::class, 'create'])->name('login');
+Route::post('/login', [LoginController::class, 'store']);
 
 Route::get('/signup', function () {
-    return Inertia::render('Signup', [
+    return Inertia::render('Signup');
+});
+Route::post('/signup', [SignupController::class, 'store']);
+
+
+Route::get('/users', function () {
+    return Inertia::render('Users',  [
         'users' => User::all(),
+        'dauser' => Auth::user(),
     ]);
 });
 Route::middleware('auth')->group(function () {
 
 
-    Route::get('/users', function () {
-        return Inertia::render('Users',  [
-            'users' => User::all()
-        ]);
-    });
+    Route::get('/', [ItemsController::class, 'index']);
+
+
+
+    // Route::post('/signup', function () {
+    //     $attributes = Request::validate([
+    //         'name' => 'required',
+    //         'username' => 'required',
+    //         'email' => ['required', 'email'],
+    //         'password' => 'required',
+    //     ]);
+
+    //     User::create($attributes);
+
+    //     return redirect('/users');
+    // });
+
+
     // Route::get('/', function () {
     //     return Inertia::render('Home', ['items' => Items::all()]);
     // });
 
     // Route::get('/', [PreferredItemController::class, 'index']);
 
-    Route::post('/signup', function () {
-        $attributes = Request::validate([
-            'name' => 'required',
-            'username' => 'required',
-            'email' => ['required', 'email'],
-            'password' => 'required',
-        ]);
-
-        User::create($attributes);
-
-        return redirect('/users');
-    });
-    // Route::post('/signup', [SignupController::class, 'store']);
 
     Route::get('/store', [StoreController::class, 'index']);
 

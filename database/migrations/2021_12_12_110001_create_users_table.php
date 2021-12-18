@@ -24,6 +24,7 @@ class CreateUsersTable extends Migration
             $table->integer('store_id', false, true)->length(10)->nullable();
             $table->foreign('store_id')->references('store_id')->on('store');
             $table->timestamps();
+            $table->rememberToken();
         });
     }
 
