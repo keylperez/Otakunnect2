@@ -14,13 +14,11 @@
 
 <script>
 import StoreItem from "../Shared/StoreItem.vue";
+
 export default {
-    props: { items: Object },
-    components: {
-        StoreItem,
-    },
-    mounted() {
-        console.log(this.items);
+    components: { StoreItem },
+    props: {
+        items: Object,
     },
 };
 </script>
