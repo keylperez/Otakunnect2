@@ -4,7 +4,7 @@
     </Head>
     <Layout>
         <div
-            class="bg-fixed bg-contain"
+            class="bg-fixed bg-contain relative"
             :style="{
                 'background-image': `url(${bannerURL})`,
             }"
@@ -13,7 +13,7 @@
                 <img :src="bannerURL" alt="banner" class="opacity-0 w-4/5" />
             </div>
             <div
-                class="bg-contain bg-fixed shadow-2xl shadow-gray-400"
+                class="bg-contain bg-fixed shadow-2xl shadow-gray-400 pb-10"
                 :style="{
                     'background-image':
                         'url(../../img/home/OtakuWallpaper-gary.jpg)',

@@ -1,13 +1,12 @@
 <template>
     <Head><title>Signup</title></Head>
     <Layout>
-        <div class="flex h-max">
+        <div class="flex h-max grow">
             <div class="flex">
                 <div
                     class="
                         bg-white
                         w-1/4
-                        h-[75rem]
                         p-10
                         h-maxam
                         text-primary-dark

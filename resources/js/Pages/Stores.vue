@@ -3,7 +3,7 @@
         <title>Stores</title>
     </Head>
     <Layout>
-        <div>
+        <div class="relative min-h-full h-full grow">
             <StoreItem
                 v-for="item in items"
                 :key="item.store_id"

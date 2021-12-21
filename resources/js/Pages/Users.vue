@@ -67,7 +67,7 @@
 </template>
 
 <script setup>
-defineProps({ users: Array });
+const props = defineProps({ users: Array });
 </script>
 
 <style></style>

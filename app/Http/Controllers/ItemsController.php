@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use DB;
 use Inertia\Inertia;
+use App\Models\Items;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -12,6 +13,7 @@ class ItemsController extends Controller
     public function index()
     {
         $items = DB::select('SELECT p.product_id, p.name product_name, s.name store_name, p.img, p.price FROM product p INNER JOIN store s ON p.store_id = s.store_id');
+        // $items = Items::
 
         // $user_id = Auth::id();   //temporary
         $user_id = 2;   //temporary
@@ -66,7 +68,7 @@ class ItemsController extends Controller
         $prefItems = DB::select($query);
         return Inertia::render('Home', [
             'items' => $items,
-            'prefItems' => $prefItems
+            'prefItems' => $prefItems,
         ]);
     }
 }

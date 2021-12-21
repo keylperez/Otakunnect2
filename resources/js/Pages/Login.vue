@@ -3,15 +3,15 @@
         <title>Login</title>
     </Head>
     <Layout>
-        <div class="flex h-max">
+        <div class="flex grow relative h-full min-h-full">
             <div class="flex">
                 <div
                     class="
                         bg-white
                         w-1/4
-                        min-h-screen
                         p-10
-                        h-maxam
+                        h-full
+                        min-h-full
                         text-primary-dark
                         animate-drawer-left
                         flex-1
@@ -132,10 +132,3 @@ const submit = () => {
     form.post("/login");
 };
 </script>
-
-<style scoped>
-html,
-body {
-    overflow: hidden;
-}
-</style>

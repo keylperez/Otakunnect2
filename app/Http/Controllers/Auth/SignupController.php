@@ -3,11 +3,17 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Models\User;
+use Inertia\Inertia;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 
 class SignupController extends Controller
 {
+    public function index()
+    {
+        return Inertia::render('Signup');
+    }
     public function store(Request $request)
     {
         $attributes = $request->validate([
@@ -17,8 +23,10 @@ class SignupController extends Controller
             'password' => 'required',
         ]);
 
-        User::create($attributes);
+        $user = User::create($attributes);
 
-        return redirect('/users');
+        Auth::login($user);
+
+        return redirect('/');
     }
 }

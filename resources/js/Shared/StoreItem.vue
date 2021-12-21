@@ -10,7 +10,7 @@
                     border-primary border-4
                     hover:border-secondary-light hover:bg-primary-light
                     duration-200
-                    hover:scale-105
+                    hover:scale-[1.01]
                 "
             >
                 <div class="flex">
@@ -31,8 +31,6 @@
     </div>
 </template>
 
-<script>
-export default {
-    props: { item: Object },
-};
+<script setup>
+defineProps({ item: Object });
 </script>

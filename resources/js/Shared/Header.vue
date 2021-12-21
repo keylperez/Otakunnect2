@@ -1,5 +1,5 @@
 <template>
-    <div class="relative bg-white">
+    <header class="bg-white relative flex-none top-0 w-full block">
         <div class="max-w-full mx-auto px-4 sm:px-6">
             <div
                 class="
@@ -13,7 +13,13 @@
             >
                 <div class="flex justify-start lg:w-0 lg:flex-1">
                     <div>
-                        <h1 class="text-6xl text-primary drop-shadow-xl">
+                        <h1
+                            class="
+                                text-6xl text-primary
+                                drop-shadow-2xl
+                                shadow-gray-900
+                            "
+                        >
                             Otakunnect
                         </h1>
                     </div>
@@ -142,7 +148,7 @@
                 </nav>
 
                 <div
-                    v-if="$page.props.auth"
+                    v-if="user"
                     class="
                         hidden
                         md:flex
@@ -152,26 +158,28 @@
                         lg:w-0
                     "
                 >
-                    <Link
-                        href="/user"
+                    <label
+                        for="user"
                         class="
                             whitespace-nowrap
                             text-base
                             font-medium
-                            text-gray-800
+                            text-center text-gray-800
                             hover:text-gray-900
                             hover:font-semibold
-                            hover:scale-105
+                            hover:text-md
                             hover:drop-shadow-xl
                             focus:outline-none
                             focus:ring-2
                             focus:ring-offset-2
                             focus:ring-primary-light
-                            duration-100
+                            duration-200
                         "
                     >
+                        <input type="checkbox" id="user" href="/user" hidden />
                         {{ user.user.username }}
-                    </Link>
+                    </label>
+                    <div class="relative"></div>
                     <Link
                         href="/logout"
                         method="post"
@@ -265,30 +273,13 @@
                 </div>
             </div>
         </div>
-    </div>
+    </header>
 </template>
-
-<script>
-// import { reactive } from "vue";
-// export default {
-//     // computed: {
-//     //     user() {
-//     //         return this.user.user;
-//     //     },
-//     // },
-//     setup() {
-//         const user = reactive({ username: "keyl" });
-//         return {
-//             user,
-//         };
-//     },
-// };
-</script>
 <script setup>
 import { computed } from "vue";
 import { usePage } from "@inertiajs/inertia-vue3";
 const user = computed(() => usePage().props.value.auth);
-console.log(user);
+console.log(user.value);
 </script>
 
 <style></style>
