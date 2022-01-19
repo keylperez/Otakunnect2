@@ -1,7 +1,10 @@
 <template>
     <div class="px-3">
         <div class="py-10">
-            <Link>
+            <Link
+            href="/product"
+            :data="{ item: item.product_id }"
+            >
                 <div
                     class="
                         bg-primary-light
@@ -107,6 +110,8 @@ import { usePage } from "@inertiajs/inertia-vue3";
 defineProps({
     item: Object,
 });
+
 </script>
+
 
 <style></style>

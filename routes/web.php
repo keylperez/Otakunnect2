@@ -31,6 +31,8 @@ Route::get('/category', function () {
     return Inertia::render('Category');
 });
 
+Route::get('/product', [ProductController::class, 'index']);
+
 Route::get('/user', [UserController::class, 'index']);
 
 

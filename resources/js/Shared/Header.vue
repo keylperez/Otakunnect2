@@ -158,7 +158,8 @@
                         lg:w-0
                     "
                 >
-                    <label
+                    <Link
+                        href="/user"
                         for="user"
                         class="
                             whitespace-nowrap
@@ -178,7 +179,7 @@
                     >
                         <input type="checkbox" id="user" href="/user" hidden />
                         {{ user.user.username }}
-                    </label>
+                    </Link>
                     <div class="relative"></div>
                     <Link
                         href="/logout"
