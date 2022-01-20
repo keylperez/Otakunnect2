@@ -4,6 +4,7 @@
             <Link
             href="/product"
             :data="{ item: item.product_id }"
+            item='item'
             >
                 <div
                     class="

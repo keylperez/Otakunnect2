@@ -3,11 +3,10 @@
 use App\Models\User;
 use Inertia\Inertia;
 use Illuminate\Support\Facades\Auth;
-// use App\Http\Controllers\PreferredItemController;
+use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ItemsController;
-use App\Http\Controllers\StoreController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\LogoutController;
@@ -21,17 +20,19 @@ Route::get('/', [ItemsController::class, 'index']);
 Route::get('/login', [LoginController::class, 'index'])->name('login');
 Route::post('/login', [LoginController::class, 'store']);
 
-Route::get('/signup', [LoginController::class, 'index']);
+Route::get('/signup', [SignupController::class, 'index']);
 Route::post('/signup', [SignupController::class, 'store']);
 
-
-Route::get('/store', [StoreController::class, 'index']);
+Route::get('/store', [ItemsController::class, 'storeItem']);
+Route::get('/stores', [ItemsController::class, 'allStore']);
 
 Route::get('/category', function () {
     return Inertia::render('Category');
 });
 
-Route::get('/product', [ProductController::class, 'index']);
+Route::get('/product', function () {
+    return Inertia::render('Product');
+});
 
 Route::get('/user', [UserController::class, 'index']);
 

@@ -12,7 +12,8 @@
                 "
             >
                 <div class="flex justify-start lg:w-0 lg:flex-1">
-                    <div>
+                    <Link
+                    href="/">
                         <h1
                             class="
                                 text-6xl text-primary
@@ -22,7 +23,7 @@
                         >
                             Otakunnect
                         </h1>
-                    </div>
+                    </Link>
                 </div>
                 <div class="-mr-2 -my-2 md:hidden">
                     <button
@@ -81,7 +82,7 @@
                     </div>
                     <div class="relative">
                         <Link
-                            href="/store"
+                            href="/stores"
                             class="
                                 text-gray-500
                                 group
