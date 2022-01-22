@@ -76,9 +76,8 @@
                     v-if="user"
                     class="hidden md:flex items-center justify-end md:flex-1 lg:w-0"
                 >
-                    <<<<<<< Updated upstream <Link href="/user" =======
-                    <!-- <label
->>>>>>> Stashed changes
+                    <!-- <Link href="/user"
+                    <label
                         for="user"
                         class="
                             whitespace-nowrap
