@@ -159,8 +159,12 @@
                         lg:w-0
                     "
                 >
+<<<<<<< Updated upstream
                     <Link
                         href="/user"
+=======
+                    <!-- <label
+>>>>>>> Stashed changes
                         for="user"
                         class="
                             whitespace-nowrap
@@ -178,8 +182,37 @@
                             duration-200
                         "
                     >
-                        <input type="checkbox" id="user" href="/user" hidden />
+                        <input
+                            v-model="test"
+                            type="checkbox"
+                            id="user"
+                            href="/user"
+                            hidden
+                        />
                         {{ user.user.username }}
+<<<<<<< Updated upstream
+=======
+                    </label> -->
+                    <Link
+                        href="/user"
+                        class="
+                            whitespace-nowrap
+                            text-base
+                            font-medium
+                            text-center text-gray-800
+                            hover:text-gray-900
+                            hover:font-semibold
+                            hover:text-md
+                            hover:drop-shadow-xl
+                            focus:outline-none
+                            focus:ring-2
+                            focus:ring-offset-2
+                            focus:ring-primary-light
+                            duration-200
+                        "
+                    >
+                        {{ user.user.username }}
+>>>>>>> Stashed changes
                     </Link>
                     <div class="relative"></div>
                     <Link
@@ -278,9 +311,10 @@
     </header>
 </template>
 <script setup>
-import { computed } from "vue";
+import { computed, ref } from "vue";
 import { usePage } from "@inertiajs/inertia-vue3";
 const user = computed(() => usePage().props.value.auth);
+const test = ref(false);
 console.log(user.value);
 </script>
 

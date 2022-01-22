@@ -30,7 +30,7 @@
                     >
                         <div class="relative left-14 -top-20">
                             <div class="relative z-10 top-56 left-44">
-                                <input
+                                <!-- <input
                                     class="hidden"
                                     @input="
                                         form.avatar = $event.target.files[0]
@@ -60,7 +60,8 @@
                                         'background-image':
                                             'url(../../img/icons/camera.png)',
                                     }"
-                                ></label>
+                                ></label> -->
+                                <AvatarUpload v-model="form.avatar" />
                             </div>
                             <div
                                 :style="{
@@ -220,6 +221,7 @@
 <script setup>
 import { ref } from "vue";
 import { useForm } from "@inertiajs/inertia-vue3";
+import AvatarUpload from "../Shared/AvatarUpload.vue";
 
 const bannerURL = ref(".././img/home/OtakunnectBanner.png");
 const avatarURL = ref(".././img/login/-11601848172olq80epz0r.png");
@@ -228,6 +230,7 @@ const form = useForm({
     avatar: null,
 });
 const submit = () => {
-    form.post("/img");
+    // form.post("/img");
+    console.log("submitting", form);
 };
 </script>

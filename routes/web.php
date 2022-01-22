@@ -49,5 +49,8 @@ Route::middleware('auth')->group(function () {
         ]);
     })->middleware('can:create,App\Models\User');
 
+    Route::get('/user', [UserController::class, 'index']);
+    Route::post('/user', [UserController::class, 'update']);
+
     Route::post('/logout', [LogoutController::class, 'store']);
 });

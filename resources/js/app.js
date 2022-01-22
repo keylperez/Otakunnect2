@@ -1,7 +1,11 @@
 import { createApp, h } from "vue";
 import { createInertiaApp, Link, Head } from "@inertiajs/inertia-vue3";
 import { InertiaProgress } from "@inertiajs/progress";
+import { ZiggyVue } from "ziggy";
+import { Ziggy } from "./ziggy";
 import Layout from "./Shared/Layout";
+
+Vue.prototype.$route = route;
 
 createInertiaApp({
     resolve: async (name) => {
@@ -18,7 +22,8 @@ createInertiaApp({
             .component("Link", Link)
             .component("Head", Head)
             // .use(router)
-            .mount(el);
+            .mount(el)
+            .use(ZiggyVue, Ziggy);
     },
 
     title: (title) => `${title} - OtaKunnect`,
@@ -28,3 +33,6 @@ InertiaProgress.init({
     color: "primary",
     showSpinner: true,
 });
+
+// how to use
+// <a class="nav-link" :href="route('home')">Home</a>
