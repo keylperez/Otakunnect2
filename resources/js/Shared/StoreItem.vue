@@ -1,11 +1,8 @@
 <template>
     <div class="mx-5 ml-32">
         <div class="my-5">
-            <Link
-            href="/store"
-            :data="{ item: item.store_id }"
-            :item="{item}"
-            >
+            <Link href="/store"
+            :data="{ item:item.store_id }">
                 <div
                     class="
                         rounded-3xl
@@ -35,5 +32,9 @@
 </template>
 
 <script setup>
-defineProps({ item: Object });
+import { usePage } from "@inertiajs/inertia-vue3";
+defineProps({
+    item: Object,
+});
+
 </script>
