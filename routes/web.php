@@ -11,6 +11,7 @@ use App\Http\Controllers\ContactController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\LogoutController;
 use App\Http\Controllers\Auth\SignupController;
+use App\Http\Controllers\Auth\PreferenceController;
 
 // use App\Models\Items;
 
@@ -26,13 +27,16 @@ Route::post('/signup', [SignupController::class, 'store']);
 Route::get('/store', [ItemsController::class, 'storeItem']);
 Route::get('/stores', [ItemsController::class, 'allStore']);
 
-Route::get('/category', function () {
-    return Inertia::render('Category');
-});
+Route::get('/category', [PreferenceController::class, 'index']);
 
-Route::get('/product', function () {
-    return Inertia::render('Product');
-});
+Route::get('/preference', [PreferenceController::class, 'index']);
+Route::post('/preference', [PreferenceController::class, 'add'])->name('pref.add');
+Route::post('/preference', [PreferenceController::class, 'delete'])->name('pref.del');
+
+Route::get('/product', [ProductController::class, 'index']);
+Route::post('/product', [ProductController::class, 'add'])->name('prod.add');
+Route::post('/product', [ProductController::class, 'delete'])->name('prod.del');
+Route::post('/product', [ProductController::class, 'update'])->name('prod.update');
 
 Route::get('/user', [UserController::class, 'index']);
 
