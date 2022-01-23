@@ -24,7 +24,7 @@ Route::post('/login', [LoginController::class, 'store']);
 Route::get('/signup', [SignupController::class, 'index']);
 Route::post('/signup', [SignupController::class, 'store']);
 
-Route::get('/store', [ItemsController::class, 'storeItem']);
+Route::get('/store/{item}', [ItemsController::class, 'storeItem'])->name('store.items');
 Route::get('/stores', [ItemsController::class, 'allStore']);
 
 Route::get('/category', [PreferenceController::class, 'index']);
