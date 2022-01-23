@@ -8,11 +8,11 @@ use Inertia\Inertia;
 
 class ProductController extends Controller
 {
-    public function index(Request $request)
+    public function index($item)
     {
         
         return Inertia::render('Product', [
-            'item'=> $item
+            'item' => $item,
         ]);
     }
 }
