@@ -2,37 +2,48 @@
 
 namespace App\Http\Controllers;
 
+use Inertia\Inertia;
+use Inertia\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 
 class CartController extends Controller
 {
-    public function index(){
+    public function index()
+    {
         $uid = Auth::id();
         $cart = DB::select(
             "SELECT c.cart_id, c.item_count, p.name, p.price
             FROM cart c
             INNER JOIN product p ON p.product_id=c.product_id
-            WHERE user_id='$uid' AND purchase_id!='NULL'");
+            WHERE user_id='$uid' AND purchase_id!='NULL'"
+        );
         $total = DB::select(
             "SELECT SUM(c.item_count*p.price)
             FROM cart c
             INNER JOIN product p ON p.product_id=c.product_id
-            WHERE user_id='$uid' AND purchase_id!='NULL'");
+            WHERE user_id='$uid' AND purchase_id!='NULL'"
+        );
         return Inertia::render('Cart', [
             'cart' => $cart,
             'total' => $total,
         ]);
     }
 
-    public function add(Request $request, $count, $id){
+    public function add(Request $request, $count, $id)
+    {
         $uid = Auth::id();
         DB::insert(
             "INSERT INTO cart(user_id,item_count,product_id)
-            VALUES('$uid','$count','$id')");
+            VALUES('$uid','$count','$id')"
+        );
     }
-    public function delete(Request $request, $id){
+    public function delete(Request $request, $id)
+    {
         DB::delete(
             "DELETE FROM cart
-            WHERE cart_id=='$id'");
+            WHERE cart_id=='$id'"
+        );
     }
 }
