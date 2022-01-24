@@ -2,6 +2,7 @@
     <div class="px-3">
         <div class="py-10">
             <Link
+            :href="route('product',{ item: item.product_id })"
             >
                 <div
                     class="

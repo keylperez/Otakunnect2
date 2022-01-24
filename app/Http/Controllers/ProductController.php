@@ -2,16 +2,23 @@
 
 namespace App\Http\Controllers;
 
+use Inertia\Inertia;
 use App\Models\Product;
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
-use Inertia\Inertia;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 
 class ProductController extends Controller
 {
-    public function index(Request $request)
+    public function index(Request $request, $id)
     {
-
+        $query = DB::select("SELECT p.product_id, p.name product_name, s.name store_name, s.store_id, p.img, p.price 
+        FROM product p 
+        INNER JOIN store s ON p.store_id = s.store_id 
+        WHERE product_id='$id'");
+        return Inertia::render('Product', [
+            'item' => $query,
+        ]);
     }
     public function add(Request $request){
         $attributes = $request->validate([

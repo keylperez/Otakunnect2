@@ -102,8 +102,7 @@ class ItemsController extends Controller
             FROM store 
             WHERE store_id='$id'"
         );
-        Inertia::share('storeInfo', $query);
-        return Inertia::render('Store', ['items' => $item]);
+        return Inertia::render('Store', ['items' => $item, 'storeInfo' => $query]);
     }
     public function allStore(Request $request)
     {

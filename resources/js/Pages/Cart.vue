@@ -1,8 +1,9 @@
 <template>
+    <Head>
+        <title>Cart</title>
+    </Head>
     <Layout>
-        {{ item[0].product_name }}
-        {{ item[0].img }}
-        ₱{{ item[0].price }}
+        <div>hi</div>
     </Layout>
 </template>
 

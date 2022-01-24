@@ -3,15 +3,15 @@
 use App\Models\User;
 use Inertia\Inertia;
 use Illuminate\Support\Facades\Auth;
-use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ItemsController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\PreferenceController;
+use App\Http\Controllers\ProductController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\LogoutController;
 use App\Http\Controllers\Auth\SignupController;
-use App\Http\Controllers\Auth\PreferenceController;
 
 // use App\Models\Items;
 
@@ -24,19 +24,22 @@ Route::post('/login', [LoginController::class, 'store']);
 Route::get('/signup', [SignupController::class, 'index']);
 Route::post('/signup', [SignupController::class, 'store']);
 
-Route::get('/store/{item}', [ItemsController::class, 'storeItem'])->name('store.items');
+Route::get('/store/{item}', [ItemsController::class, 'storeItem'])->name('store');
 Route::get('/stores', [ItemsController::class, 'allStore']);
 
 Route::get('/category', [PreferenceController::class, 'index']);
+Route::post('/category', [PreferenceController::class, 'add'])->name('pref.add');
+Route::post('/category', [PreferenceController::class, 'delete'])->name('pref.del');
 
-Route::get('/preference', [PreferenceController::class, 'index']);
-Route::post('/preference', [PreferenceController::class, 'add'])->name('pref.add');
-Route::post('/preference', [PreferenceController::class, 'delete'])->name('pref.del');
+Route::get('/cart', [CartController::class, 'index'])->name('');
+Route::get('/cart/{item}', [CartController::class, 'index'])->name('cart.add');
+Route::get('/cart', [CartController::class, 'index'])->name('cart.del');
 
-Route::get('/product/{item}', [ProductController::class, 'index'])->name('product.items');
-Route::post('/product', [ProductController::class, 'add'])->name('prod.add');
-Route::post('/product', [ProductController::class, 'delete'])->name('prod.del');
-Route::post('/product', [ProductController::class, 'update'])->name('prod.update');
+
+Route::get('/product/{item}', [ProductController::class, 'index'])->name('product');
+Route::post('/product', [ProductController::class, 'add'])->name('product.add');
+Route::post('/product', [ProductController::class, 'delete'])->name('product.del');
+Route::post('/product', [ProductController::class, 'update'])->name('product.update');
 
 Route::get('/user', [UserController::class, 'index']);
 

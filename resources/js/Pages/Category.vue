@@ -7,6 +7,12 @@
     </Layout>
 </template>
 
-<script setup></script>
+<script setup>
+import { usePage } from "@inertiajs/inertia-vue3";
+defineProps({
+    anime: Object,
+    category: Object,
+});
+</script>
 
 <style></style>
