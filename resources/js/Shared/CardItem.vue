@@ -2,9 +2,6 @@
     <div class="px-3">
         <div class="py-10">
             <Link
-            href="/product"
-            :data="{ item: item.product_id }"
-            item='item'
             >
                 <div
                     class="

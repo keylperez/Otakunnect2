@@ -87,21 +87,20 @@ class ItemsController extends Controller
             ]);
         }
     }
-    public function storeItem(Request $request)
+    public function storeItem(Request $request, $id)
     {
-        $store_id = 2;
         $item = DB::select(
             "SELECT p.product_id, p.name product_name, p.img, p.price, p.desc
             FROM product p
             INNER JOIN store s ON p.store_id = s.store_id
-            WHERE p.store_id='$store_id'
+            WHERE p.store_id='$id'
             ORDER BY RAND()
             LIMIT 20"
         );
         $query = DB::select(
             "SELECT *
             FROM store 
-            WHERE store_id='$store_id'"
+            WHERE store_id='$id'"
         );
         Inertia::share('storeInfo', $query);
         return Inertia::render('Store', ['items' => $item]);

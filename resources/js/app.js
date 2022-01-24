@@ -5,6 +5,7 @@ import { ZiggyVue } from "ziggy";
 import { Ziggy } from "./ziggy";
 import Layout from "./Shared/Layout.vue";
 
+
 createInertiaApp({
     resolve: async (name) => {
         let page = (await import(`./Pages/${name}`)).default;
@@ -15,11 +16,11 @@ createInertiaApp({
     },
     setup({ el, App, props, plugin }) {
         createApp({ render: () => h(App, props) })
+            .use(ZiggyVue, Ziggy)
             .use(plugin)
             .component("Link", Link)
             .component("Head", Head)
             .mount(el)
-            .use(ZiggyVue, Ziggy);
     },
 
     title: (title) => `${title} - OtaKunnect`,

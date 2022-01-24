@@ -33,7 +33,7 @@ Route::get('/preference', [PreferenceController::class, 'index']);
 Route::post('/preference', [PreferenceController::class, 'add'])->name('pref.add');
 Route::post('/preference', [PreferenceController::class, 'delete'])->name('pref.del');
 
-Route::get('/product', [ProductController::class, 'index']);
+Route::get('/product/{item}', [ProductController::class, 'index'])->name('product.items');
 Route::post('/product', [ProductController::class, 'add'])->name('prod.add');
 Route::post('/product', [ProductController::class, 'delete'])->name('prod.del');
 Route::post('/product', [ProductController::class, 'update'])->name('prod.update');
