@@ -1,6 +1,7 @@
 <template>
-    <!-- <Head title="item" /> -->
+    <Head title="item.prodcut_name" />
     <Layout>
+        <div></div>
         {{ item[0].product_name }}
         {{ item[0].img }}
         ₱{{ item[0].price }}

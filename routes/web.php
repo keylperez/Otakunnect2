@@ -36,7 +36,8 @@ Route::get('/cart/{item}', [CartController::class, 'index'])->name('cart.add');
 Route::get('/cart', [CartController::class, 'index'])->name('cart.del');
 
 
-Route::get('/product/{item}', [ProductController::class, 'index'])->name('product');
+Route::get('/product', [ProductController::class, 'index'])->name('product');
+// Route::get('/product/{item}', [ProductController::class, 'index'])->name('product');
 Route::post('/product/add', [ProductController::class, 'add'])->name('product.add');
 Route::post('/product/delete', [ProductController::class, 'delete'])->name('product.del');
 Route::post('/product/update', [ProductController::class, 'update'])->name('product.update');
@@ -58,6 +59,7 @@ Route::middleware('auth')->group(function () {
 
     Route::get('/user', [UserController::class, 'index']);
     Route::post('/user', [UserController::class, 'update']);
+    Route::post('/user/upload', [UserController::class, 'upload']);
 
     Route::post('/logout', [LogoutController::class, 'store']);
 });

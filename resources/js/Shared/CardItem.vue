@@ -1,7 +1,8 @@
 <template>
     <div class="px-3">
         <div class="py-10">
-            <Link :href="route('product', { item: item })">
+            <!-- <Link :href="route('product', { item: item.product_id })"> -->
+            <Link href="/product">
                 <div
                     class="bg-primary-light shadow-2xl shadow-gray-500 w-64 hover:scale-110 hover:cursor-pointer duration-200 pb-1"
                 >

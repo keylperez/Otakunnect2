@@ -10,17 +10,18 @@ use Illuminate\Support\Facades\Auth;
 
 class ProductController extends Controller
 {
-    public function index(Request $request, $id)
+    public function index(Request $request)
     {
         $query = DB::select("SELECT p.product_id, p.name product_name, s.name store_name, s.store_id, p.img, p.price 
         FROM product p 
         INNER JOIN store s ON p.store_id = s.store_id 
-        WHERE product_id='$id'");
+        WHERE product_id=2");
         return Inertia::render('Product', [
             'item' => $query,
         ]);
     }
-    public function add(Request $request){
+    public function add(Request $request)
+    {
         $attributes = $request->validate([
             'name' => 'required',
             'img' => 'required',
@@ -29,15 +30,17 @@ class ProductController extends Controller
         ]);
         Product::create($attributes);
     }
-    public function delete(Request $request, $id){
+    public function delete(Request $request, $id)
+    {
         DB::delete(
             "DELETE FROM product
-            WHERE =='$id'");
+            WHERE =='$id'"
+        );
     }
-    public function update(Request $request, $id){
-        
-        Product::where()
-        ->update();
-    }
+    public function update(Request $request, $id)
+    {
 
+        Product::where()
+            ->update();
+    }
 }
