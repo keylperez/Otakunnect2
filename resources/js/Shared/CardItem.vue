@@ -1,30 +1,13 @@
 <template>
     <div class="px-3">
         <div class="py-10">
-            <Link
-            :href="route('product',{ item: item.product_id })"
-            >
+            <Link :href="route('product', { item: item })">
                 <div
-                    class="
-                        bg-primary-light
-                        shadow-2xl shadow-gray-500
-                        w-64
-                        hover:scale-110 hover:cursor-pointer
-                        duration-200
-                        pb-1
-                    "
+                    class="bg-primary-light shadow-2xl shadow-gray-500 w-64 hover:scale-110 hover:cursor-pointer duration-200 pb-1"
                 >
                     <div class="w-full min-h-64 max-h-64 h-64">
                         <img
-                            class="
-                                relative
-                                min-h-64
-                                max-h-64
-                                mx-auto
-                                my-auto
-                                top-1/2
-                                -translate-y-1/2
-                            "
+                            class="relative min-h-64 max-h-64 mx-auto my-auto top-1/2 -translate-y-1/2"
                             :src="item.img"
                             alt=""
                         />
@@ -36,16 +19,7 @@
                             >
                                 <div class="">
                                     <svg
-                                        class="
-                                            fill-white
-                                            stroke-black
-                                            w-8
-                                            h-8
-                                            hover:cursor-pointer
-                                            hover:scale-110
-                                            hover:drop-shadow-xl
-                                            duration-200
-                                        "
+                                        class="fill-white stroke-black w-8 h-8 hover:cursor-pointer hover:scale-110 hover:drop-shadow-xl duration-200"
                                     >
                                         <!-- <symbol
                                         class="fill-white"
@@ -59,14 +33,7 @@
                                     </svg>
                                 </div>
                                 <div
-                                    class="
-                                        bg-white
-                                        rounded-full
-                                        px-2
-                                        py-1
-                                        self-end
-                                        w-min
-                                    "
+                                    class="bg-white rounded-full px-2 py-1 self-end w-min"
                                 >
                                     <!-- <button v-if="$page.props.auth.user.auth_level">
                                     Edit
@@ -81,12 +48,7 @@
                             </div>
                             <div class="ml-1 mb-3">
                                 <div
-                                    class="
-                                        flex
-                                        items-center
-                                        justify-between
-                                        my-5
-                                    "
+                                    class="flex items-center justify-between my-5"
                                 >
                                     <span class="text-quinary-light text-sm">{{
                                         item.store_name
@@ -109,8 +71,6 @@ import { usePage } from "@inertiajs/inertia-vue3";
 defineProps({
     item: Object,
 });
-
 </script>
-
 
 <style></style>

@@ -51,26 +51,16 @@
         </div>
     </Layout>
 </template>
-<script>
+<script setup>
 import CardItem from "../Shared/CardItem.vue";
 import { ref } from "vue";
 
-export default {
-    props: {
-        items: Object,
-        prefItems: Object,
-    },
-    setup() {
-        const bannerURL = ref("../../img/home/OtakunnectBanner.png");
-
-        return {
-            bannerURL,
-        };
-    },
-    components: {
-        CardItem,
-    },
-};
+defineProps({
+    items: Object,
+    prefItems: Object,
+});
+const bannerURL = ref("../../img/home/OtakunnectBanner.png");
+console.log(Ziggy);
 </script>
 
 <style></style>

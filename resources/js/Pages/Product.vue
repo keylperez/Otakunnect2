@@ -1,4 +1,5 @@
 <template>
+    <!-- <Head title="item" /> -->
     <Layout>
         {{ item[0].product_name }}
         {{ item[0].img }}
