@@ -1,15 +1,14 @@
 <template>
     <div class="px-3">
         <div class="py-10">
-            <!-- <Link :href="route('product', { item: item.product_id })"> -->
-            <Link href="/product">
+            <Link :href="route('product', { item: item.product_id })">
                 <div
                     class="bg-primary-light shadow-2xl shadow-gray-500 w-64 hover:scale-110 hover:cursor-pointer duration-200 pb-1"
                 >
                     <div class="w-full min-h-64 max-h-64 h-64">
                         <img
                             class="relative min-h-64 max-h-64 mx-auto my-auto top-1/2 -translate-y-1/2"
-                            :src="item.img"
+                            :src="'/storage/'+item.img"
                             alt=""
                         />
                     </div>

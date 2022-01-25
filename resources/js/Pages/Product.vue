@@ -1,5 +1,5 @@
 <template>
-    <Head title="item.prodcut_name" />
+    <Head title="item.product_name" />
     <Layout>
         <div></div>
         {{ item[0].product_name }}

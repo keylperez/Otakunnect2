@@ -22,7 +22,7 @@ class ItemsController extends Controller
         LIMIT 20'
         );
 
-        if ($user_id != 0) {
+        if ($user_id != NULL) {
             $query = DB::select(
                 "SELECT p.anime_id
                 FROM preference p
@@ -73,38 +73,17 @@ class ItemsController extends Controller
                 // printf('3');
             } else {
                 return Inertia::render('Home', [
-                    'items' => $items->map(function ($item) {
-                        return [
-                            'img' => asset('storage/' . $item->img),
-                            'product_name' => $item->product_name,
-                            'price' => $item->price,
-                            'store_name' => $item->store_name,
-                        ];
-                    })
+                    'items' => $items,
                 ]);
             }
             $prefItems = DB::select($query);
             return Inertia::render('Home', [
-                'items' => $items->map(function ($item) {
-                    return [
-                        'img' => asset('storage/' . $item->img),
-                        'product_name' => $item->product_name,
-                        'price' => $item->price,
-                        'store_name' => $item->store_name,
-                    ];
-                }),
+                'items' => $items,
                 'prefItems' => $prefItems,
             ]);
         } else {
             return Inertia::render('Home', [
-                'items' => $items->map(function ($item) {
-                    return [
-                        'img' => asset('storage/' . $item->img),
-                        'product_name' => $item->product_name,
-                        'price' => $item->price,
-                        'store_name' => $item->store_name,
-                    ];
-                }),
+                'items' => $items,
             ]);
         }
     }
