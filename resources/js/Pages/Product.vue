@@ -1,5 +1,5 @@
 <template>
-    <Head title="item.prodcut_name" />
+    <Head :title="item.name" />
     <Layout class="flex-1">
         <section class="text-gray-600 body-font overflow-hidden">
             <div class="container px-5 py-24 mx-auto">
@@ -154,7 +154,7 @@
                                         type="number"
                                         name="count"
                                         v-model="form.item_count"
-                                        min="0"
+                                        min="1"
                                         class="rounded border appearance-none border-gray-300 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-200 focus:border-indigo-500 text-base pl-3"
                                     />
                                     <!-- <input type="number" name="product_id" v-model="form.product_id">
@@ -165,7 +165,7 @@
                         <div class="flex">
                             <span
                                 class="title-font font-medium text-2xl text-gray-900"
-                                >₱{{ item.price }}</span
+                                >₱{{ item.price }} {{error}}</span
                             >
                             <!-- <Link
                                 href="/cart"
@@ -212,15 +212,16 @@ import { usePage, useForm } from "@inertiajs/inertia-vue3";
 import { computed, ref } from "vue";
 const props = defineProps({
     items: Array,
+    error: Object
 });
 const item = ref(props.items[0]);
-const form = useForm({ item_count: 0});
+const form = useForm({ item_count: 1});
 const submit = () => {
     form.transform((data)=>({
         ...data,
         product_id: props.items[0].product_id, 
         user_id:usePage().props.value.auth.user.id
-    })).post("/cart/add");
+    })).post(route('cart.add', {id: props.items[0].product_id}));
 };
 let quantity = ref(0);
 </script>

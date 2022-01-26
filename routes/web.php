@@ -48,7 +48,7 @@ Route::middleware('auth')->group(function () {
     Route::post('/contact', [ContactController::class, 'store']);
     Route::get('/cart', [CartController::class, 'index'])->name('cart');
     Route::post('/cart/del', [CartController::class, 'del'])->name('cart.del');
-    Route::post('/cart/add', [CartController::class, 'add'])->name('cart.add');
+    Route::post('/product/{id}', [CartController::class, 'add'])->name('cart.add');
 
     Route::get('/users', function () {
         return Inertia::render('Users',  [

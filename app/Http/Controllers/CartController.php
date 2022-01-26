@@ -34,13 +34,22 @@ class CartController extends Controller
 
     public function add(Request $request)
     {
+        
         $attributes = $request->validate([
             'user_id' => 'required',
             'item_count' => 'required',
             'product_id' => 'required'
         ]);
-        DB::table('cart')->insert($attributes);
-        return Inertia::render('Home');
+        $check = $request->validate([
+            'product_id' => 'required'
+        ]);
+        $query = DB::table('cart')->where('product_id', '=', $check)->get();
+        if($query==NULL){
+            DB::table('cart')->insert($attributes);
+        } else{
+            return Inertia::render('Product', ['error' => 'Already In Cart']);
+        }
+        return Inertia::render('Product');
     }
     public function update(Request $request, $id)
     {
