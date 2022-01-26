@@ -4,12 +4,13 @@ use App\Models\User;
 use Inertia\Inertia;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CartController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ItemsController;
 use App\Http\Controllers\ContactController;
-use App\Http\Controllers\PreferenceController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\PreferenceController;
 use App\Http\Controllers\Auth\LogoutController;
 use App\Http\Controllers\Auth\SignupController;
 
@@ -30,9 +31,7 @@ Route::get('/category', [PreferenceController::class, 'index']);
 Route::post('/category', [PreferenceController::class, 'add'])->name('pref.add');
 Route::post('/category', [PreferenceController::class, 'delete'])->name('pref.del');
 
-Route::get('/cart', [CartController::class, 'index'])->name('');
-Route::get('/cart/{item}', [CartController::class, 'index'])->name('cart.add');
-Route::get('/cart', [CartController::class, 'index'])->name('cart.del');
+
 
 
 // Route::get('/product', [ProductController::class, 'index'])->name('product');
@@ -47,6 +46,9 @@ Route::get('/user', [UserController::class, 'index']);
 Route::middleware('auth')->group(function () {
     Route::get('/contact', [ContactController::class, 'index']);
     Route::post('/contact', [ContactController::class, 'store']);
+    Route::get('/cart/{item}', [CartController::class, 'index'])->name('cart.add');
+    Route::post('/cart', [CartController::class, 'store'])->name('');
+    Route::get('/cart', [CartController::class, 'index'])->name('cart.del');
 
     Route::get('/users', function () {
         return Inertia::render('Users',  [
