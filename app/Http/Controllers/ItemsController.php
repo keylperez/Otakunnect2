@@ -14,13 +14,23 @@ class ItemsController extends Controller
     {
         $user_id = Auth::id();
 
-        $items = DB::select(
-            'SELECT p.product_id, p.name product_name, s.name store_name, p.img, p.price, s.store_id  
-        FROM product p 
-        INNER JOIN store s ON p.store_id = s.store_id
-        ORDER BY RAND() 
-        LIMIT 20'
-        );
+        // $items = DB::select(
+        //     'SELECT p.product_id, p.name product_name, s.name store_name, p.img, p.price, s.store_id  
+        // FROM product p 
+        // INNER JOIN store s ON p.store_id = s.store_id
+        // ORDER BY RAND() 
+        // LIMIT 20'
+        // );
+        $items = DB::table('product')
+            ->select('product.*', 'store.name as store_name')
+            ->join('store', 'store.store_id', '=',  'product.store_id')
+            ->get();
+        //     'SELECT p.product_id, p.name product_name, s.name store_name, p.img, p.price, s.store_id  
+        // FROM product p 
+        // INNER JOIN store s ON p.store_id = s.store_id
+        // ORDER BY RAND() 
+        // LIMIT 20'
+        // );
 
         if ($user_id != NULL) {
             $query = DB::select(
@@ -73,40 +83,41 @@ class ItemsController extends Controller
                 // printf('3');
             } else {
                 return Inertia::render('Home', [
-                    'items' => $items
-                    // 'items' => $items->map(function ($item) {
-                    //     return [
-                    //         'img' => asset('storage/' . $item->img),
-                    //         'product_name' => $item->product_name,
-                    //         'price' => $item->price,
-                    //         'store_name' => $item->store_name,
-                    //     ];
+                    // 'items' => $items
+                    'items' => $items->map(function ($item) {
+                        return [
+                            'img' => asset('storage/' . $item->img),
+                            'product_name' => $item->name,
+                            'price' => $item->price,
+                            'store_name' => $item->store_name,
+                        ];
+                    })
                 ]);
             }
             $prefItems = DB::select($query);
             return Inertia::render('Home', [
-                'items' => $items,
-                // 'items' => $items->map(function ($item) {
-                //     return [
-                //         'img' => asset('storage/' . $item->img),
-                //         'product_name' => $item->product_name,
-                //         'price' => $item->price,
-                //         'store_name' => $item->store_name,
-                //     ];
-                // }),
+                // 'items' => $items,
+                'items' => $items->map(function ($item) {
+                    return [
+                        'img' => asset('storage/' . $item->img),
+                        'product_name' => $item->name,
+                        'price' => $item->price,
+                        'store_name' => $item->store_name,
+                    ];
+                }),
                 'prefItems' => $prefItems,
             ]);
         } else {
             return Inertia::render('Home', [
-                'items' => $items
-                // 'items' => $items->map(function ($item) {
-                //     return [
-                //         'img' => asset('storage/' . $item->img),
-                //         'product_name' => $item->product_name,
-                //         'price' => $item->price,
-                //         'store_name' => $item->store_name,
-                //     ];
-                // }),
+                // 'items' => $items
+                'items' => $items->map(function ($item) {
+                    return [
+                        'img' => asset('storage/' . $item->img),
+                        'product_name' => $item->name,
+                        'price' => $item->price,
+                        'store_name' => $item->store_name,
+                    ];
+                }),
             ]);
         }
     }

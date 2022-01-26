@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Auth;
 
 class CartController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
         $uid = Auth::id();
         $cart = DB::select(
@@ -33,6 +33,7 @@ class CartController extends Controller
     }
 
     public function add(Request $request)
+    // public function store(Request $request, $count, $id)
     {
         
         $attributes = $request->validate([
