@@ -464,7 +464,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       render: function render() {
         return (0,vue__WEBPACK_IMPORTED_MODULE_1__.h)(App, props);
       }
-    }).use(plugin).use(ziggy__WEBPACK_IMPORTED_MODULE_4__.ZiggyVue, _ziggy__WEBPACK_IMPORTED_MODULE_5__.Ziggy).component("Link", _inertiajs_inertia_vue3__WEBPACK_IMPORTED_MODULE_2__.Link).component("Head", _inertiajs_inertia_vue3__WEBPACK_IMPORTED_MODULE_2__.Head).mount(el);
+    }).use(plugin).component("Link", _inertiajs_inertia_vue3__WEBPACK_IMPORTED_MODULE_2__.Link).component("Head", _inertiajs_inertia_vue3__WEBPACK_IMPORTED_MODULE_2__.Head).use(ziggy__WEBPACK_IMPORTED_MODULE_4__.ZiggyVue, _ziggy__WEBPACK_IMPORTED_MODULE_5__.Ziggy).mount(el);
   },
   title: function title(_title) {
     return "".concat(_title, " - OtaKunnect");
@@ -490,34 +490,34 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "Ziggy": () => (/* binding */ Ziggy)
 /* harmony export */ });
 var Ziggy = {
-  "url": "http:\/\/127.0.0.1:8000",
-  "port": 8000,
-  "defaults": {},
-  "routes": {
-    "login": {
-      "uri": "login",
-      "methods": ["GET", "HEAD"]
+  url: "http://localhost:8000",
+  port: null,
+  defaults: {},
+  routes: {
+    login: {
+      uri: "login",
+      methods: ["GET", "HEAD"]
     },
-    "store": {
-      "uri": "store\/{item}",
-      "methods": ["GET", "HEAD"]
+    store: {
+      uri: "store/{item}",
+      methods: ["GET", "HEAD"]
     },
     "pref.del": {
-      "uri": "category",
-      "methods": ["POST"]
+      uri: "category",
+      methods: ["POST"]
     },
-    "product": {
-      "uri": "product\/{item}",
-      "methods": ["GET", "HEAD"]
+    product: {
+      uri: "product/{item}",
+      methods: ["GET", "HEAD"]
     },
     "product.update": {
-      "uri": "product",
-      "methods": ["POST"]
+      uri: "product",
+      methods: ["POST"]
     }
   }
 };
 
-if (typeof window !== 'undefined' && typeof window.Ziggy !== 'undefined') {
+if (typeof window !== "undefined" && typeof window.Ziggy !== "undefined") {
   Object.assign(Ziggy.routes, window.Ziggy.routes);
 }
 

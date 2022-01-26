@@ -15,7 +15,7 @@ class ItemsController extends Controller
         $user_id = Auth::id();
 
         $items = DB::select(
-            'SELECT p.product_id, p.name product_name, s.name store_name, p.img, p.price 
+            'SELECT p.product_id, p.name product_name, s.name store_name, p.img, p.price, s.store_id  
         FROM product p 
         INNER JOIN store s ON p.store_id = s.store_id
         ORDER BY RAND() 
@@ -48,7 +48,7 @@ class ItemsController extends Controller
             }
 
             if ($anime != NULL && $category != NULL) {
-                $query = "SELECT p.product_id, p.name product_name, p.img, p.price, p.desc, p.store_id, s.name store_name
+                $query = "SELECT p.product_id, p.name product_name, p.img, p.price, p.desc, p.store_id, s.name store_name, s.store_id 
                 FROM product p 
                 INNER JOIN store s ON p.store_id = s.store_id
                 WHERE anime_id IN (" . implode(',', $anime) . ") OR category_id IN (" . implode(',', $category) . ")
@@ -56,7 +56,7 @@ class ItemsController extends Controller
                 LIMIT 20";
                 // printf('1');
             } else if ($anime == NULL && $category != NULL) {
-                $query = "SELECT p.product_id, p.name product_name, p.img, p.price, p.desc, p.store_id, s.name store_name
+                $query = "SELECT p.product_id, p.name product_name, p.img, p.price, p.desc, p.store_id, s.name store_name, s.store_id
                 FROM product p 
                 INNER JOIN store s ON p.store_id = s.store_id
                 WHERE category_id IN (" . implode(',', $category) . ")
@@ -64,7 +64,7 @@ class ItemsController extends Controller
                 LIMIT 20";
                 // printf('2');
             } else if ($category == NULL && $anime != NULL) {
-                $query = "SELECT p.product_id, p.name product_name, p.img, p.price, p.desc, p.store_id, s.name store_name
+                $query = "SELECT p.product_id, p.name product_name, p.img, p.price, p.desc, p.store_id, s.name store_name, s.store_id
                 FROM product p 
                 INNER JOIN store s ON p.store_id = s.store_id
                 WHERE anime_id IN (" . implode(',', $anime) . ")
@@ -73,38 +73,40 @@ class ItemsController extends Controller
                 // printf('3');
             } else {
                 return Inertia::render('Home', [
-                    'items' => $items->map(function ($item) {
-                        return [
-                            'img' => asset('storage/' . $item->img),
-                            'product_name' => $item->product_name,
-                            'price' => $item->price,
-                            'store_name' => $item->store_name,
-                        ];
-                    })
+                    'items' => $items
+                    // 'items' => $items->map(function ($item) {
+                    //     return [
+                    //         'img' => asset('storage/' . $item->img),
+                    //         'product_name' => $item->product_name,
+                    //         'price' => $item->price,
+                    //         'store_name' => $item->store_name,
+                    //     ];
                 ]);
             }
             $prefItems = DB::select($query);
             return Inertia::render('Home', [
-                'items' => $items->map(function ($item) {
-                    return [
-                        'img' => asset('storage/' . $item->img),
-                        'product_name' => $item->product_name,
-                        'price' => $item->price,
-                        'store_name' => $item->store_name,
-                    ];
-                }),
+                'items' => $items,
+                // 'items' => $items->map(function ($item) {
+                //     return [
+                //         'img' => asset('storage/' . $item->img),
+                //         'product_name' => $item->product_name,
+                //         'price' => $item->price,
+                //         'store_name' => $item->store_name,
+                //     ];
+                // }),
                 'prefItems' => $prefItems,
             ]);
         } else {
             return Inertia::render('Home', [
-                'items' => $items->map(function ($item) {
-                    return [
-                        'img' => asset('storage/' . $item->img),
-                        'product_name' => $item->product_name,
-                        'price' => $item->price,
-                        'store_name' => $item->store_name,
-                    ];
-                }),
+                'items' => $items
+                // 'items' => $items->map(function ($item) {
+                //     return [
+                //         'img' => asset('storage/' . $item->img),
+                //         'product_name' => $item->product_name,
+                //         'price' => $item->price,
+                //         'store_name' => $item->store_name,
+                //     ];
+                // }),
             ]);
         }
     }

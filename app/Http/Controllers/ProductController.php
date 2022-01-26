@@ -10,14 +10,35 @@ use Illuminate\Support\Facades\Auth;
 
 class ProductController extends Controller
 {
-    public function index(Request $request)
+    public function index(Request $request, $id)
     {
-        $query = DB::select("SELECT p.product_id, p.name product_name, s.name store_name, s.store_id, p.img, p.price 
-        FROM product p 
-        INNER JOIN store s ON p.store_id = s.store_id 
-        WHERE product_id=2");
+        // $query = DB::select("SELECT p.product_id, p.name product_name, s.name store_name, s.store_id, p.img, p.price, p.description 
+        // FROM product p 
+        // INNER JOIN store s ON p.store_id = s.store_id 
+        // WHERE product_id='$id'");
+        $query = DB::table('product')
+            ->select('product.*', 'store.store_id', 'store.name as store_name', 'store.desc as store_desc')
+            ->join('store', 'store.store_id', '=',  'product.store_id')
+            ->where('product.product_id', '=', $id)
+            ->get();
+        // dd($query);
         return Inertia::render('Product', [
-            'item' => $query,
+            'items' => $query->map(function ($item) {
+                return [
+
+                    "product_id" => $item->product_id,
+                    "name" => $item->name,
+                    "img" => asset('storage/app/public/' . $item->img),
+                    "price" => $item->price,
+                    "desc" => $item->desc,
+                    "category_id" => $item->category_id,
+                    "anime_id" => $item->anime_id,
+                    "store_id" => $item->store_id,
+                    "deleted" => $item->deleted,
+                    "store_name" => $item->store_name,
+                    "store_desc" => $item->store_desc,
+                ];
+            })
         ]);
     }
     public function add(Request $request)

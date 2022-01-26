@@ -1,15 +1,18 @@
 <template>
     <div class="px-3">
         <div class="py-10">
-            <!-- <Link :href="route('product', { item: item.product_id })"> -->
-            <Link href="/product">
+            <Link :href="route('product', { item: item.product_id })">
+                <!-- <Link href="/product"> -->
                 <div
                     class="bg-primary-light shadow-2xl shadow-gray-500 w-64 hover:scale-110 hover:cursor-pointer duration-200 pb-1"
                 >
                     <div class="w-full min-h-64 max-h-64 h-64">
                         <img
                             class="relative min-h-64 max-h-64 mx-auto my-auto top-1/2 -translate-y-1/2"
-                            :src="item.img"
+                            :src="
+                                'https://localhost:8000/storage/app/public/' +
+                                item.img
+                            "
                             alt=""
                         />
                     </div>
@@ -51,9 +54,15 @@
                                 <div
                                     class="flex items-center justify-between my-5"
                                 >
-                                    <span class="text-quinary-light text-sm">{{
-                                        item.store_name
-                                    }}</span>
+                                    <Link
+                                        :href="
+                                            route('store', {
+                                                id: item.store_id,
+                                            })
+                                        "
+                                        class="text-quinary-light text-sm hover:scale-110 hover:drop-shadow-lg transition-all"
+                                        >{{ item.store_name }}</Link
+                                    >
                                     <h5 class="text-gray-500 text-lg">
                                         ₱{{ item.price }}
                                     </h5>
