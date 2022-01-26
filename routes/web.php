@@ -60,7 +60,6 @@ Route::middleware('auth')->group(function () {
 
     Route::get('/user', [UserController::class, 'index']);
     Route::post('/user', [UserController::class, 'update']);
-    Route::post('/user/upload', [UserController::class, 'upload']);
 
     Route::post('/logout', [LogoutController::class, 'store']);
 });

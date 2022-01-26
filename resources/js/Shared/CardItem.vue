@@ -2,17 +2,24 @@
     <div class="px-3">
         <div class="py-10">
             <Link :href="route('product', { item: item.product_id })">
+<<<<<<< HEAD
                 <!-- <Link href="/product"> -->
+=======
+>>>>>>> 6da248a2f6311e370d5d1b26bda4b10479d0df7b
                 <div
                     class="bg-primary-light shadow-2xl shadow-gray-500 w-64 hover:scale-110 hover:cursor-pointer duration-200 pb-1"
                 >
                     <div class="w-full min-h-64 max-h-64 h-64">
                         <img
                             class="relative min-h-64 max-h-64 mx-auto my-auto top-1/2 -translate-y-1/2"
+<<<<<<< HEAD
                             :src="
                                 'https://localhost:8000/storage/app/public/' +
                                 item.img
                             "
+=======
+                            :src="'/storage/'+item.img"
+>>>>>>> 6da248a2f6311e370d5d1b26bda4b10479d0df7b
                             alt=""
                         />
                     </div>

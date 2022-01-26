@@ -22,7 +22,7 @@ class ItemsController extends Controller
         LIMIT 20'
         );
 
-        if ($user_id != 0) {
+        if ($user_id != NULL) {
             $query = DB::select(
                 "SELECT p.anime_id
                 FROM preference p
