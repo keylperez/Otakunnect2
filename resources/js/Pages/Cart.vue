@@ -6,7 +6,7 @@
         <section class="text-gray-600 body-font overflow-hidden flex-1">
             <div class="container px-5 py-24 mx-auto">
                 <div
-                    v-if="cart.length > 0"
+                    v-if="cart.length != 0"
                     class="-my-8 divide-y-2 divide-gray-100"
                 >
                     <CartItem

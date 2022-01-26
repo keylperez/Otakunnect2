@@ -2,7 +2,7 @@
     <div class="mx-5 ml-32">
         <div class="my-5">
             <Link
-            :href="route('store',{ item: item.store_id })"
+            :href="route('store',{ id: item.store_id })"
             >
                 <div
                     class="

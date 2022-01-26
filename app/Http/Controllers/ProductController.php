@@ -50,6 +50,7 @@ class ProductController extends Controller
             'store_id' => 'required' //unnecessary since it will be sent through a hidden input
         ]);
         Product::create($attributes);
+        return Inertia::render('Home');
     }
     public function delete(Request $request, $id)
     {

@@ -5,7 +5,7 @@
                 item.name
             }}</span>
             <span class="mt-1 text-gray-500 text-sm"
-                >{{ item.store_name }}9</span
+                >{{ item.store_name }}</span
             >
         </div>
         <div class="md:flex-grow">

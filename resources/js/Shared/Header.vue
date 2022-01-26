@@ -71,7 +71,11 @@
                         </Link>
                     </div>
                 </nav>
-
+                <div>
+                    <Link :href="route('cart')">
+                        Cart
+                    </Link>
+                </div>
                 <div
                     v-if="user"
                     class="hidden md:flex items-center justify-end md:flex-1 lg:w-0"

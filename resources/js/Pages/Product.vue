@@ -152,11 +152,13 @@
                                 <div class="relative">
                                     <input
                                         type="number"
-                                        name="total"
-                                        v-model="form.total"
+                                        name="count"
+                                        v-model="form.item_count"
                                         min="0"
                                         class="rounded border appearance-none border-gray-300 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-200 focus:border-indigo-500 text-base pl-3"
                                     />
+                                    <!-- <input type="number" name="product_id" v-model="form.product_id">
+                                    <input type="number" name="user_id" v-model="form.user_id"> -->
                                 </div>
                             </div>
                         </div>
@@ -175,7 +177,7 @@
                                 "
                                 class="flex ml-auto text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded"
                             > -->
-                            <button
+                            <button type="submit"
                                 class="flex ml-auto text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded"
                             >
                                 Add to Cart
@@ -207,14 +209,18 @@
 
 <script setup>
 import { usePage, useForm } from "@inertiajs/inertia-vue3";
-import { ref } from "vue";
+import { computed, ref } from "vue";
 const props = defineProps({
     items: Array,
 });
 const item = ref(props.items[0]);
-const form = useForm({ total: 0 });
+const form = useForm({ item_count: 0});
 const submit = () => {
-    form.post("/cart");
+    form.transform((data)=>({
+        ...data,
+        product_id: props.items[0].product_id, 
+        user_id:usePage().props.value.auth.user.id
+    })).post("/cart/add");
 };
 let quantity = ref(0);
 </script>
