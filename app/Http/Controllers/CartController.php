@@ -59,28 +59,26 @@ class CartController extends Controller
     }
 
     public function add(Request $request)
-    // public function store(Request $request, $count, $id)
     {
-
         $attributes = $request->validate([
             'user_id' => 'required',
             'item_count' => 'required',
             'product_id' => 'required'
         ]);
-        // $check = $request->validate([
-        //     'product_id' => 'required'
-        // ]);
-        // dd($attributes['product_id']);
-        $query = DB::table('cart')->select('*')->where('product_id', '=', $attributes['product_id'])->get();
-        // dd($query);
-        // if ($query == NULL) {
-        // dd(DB::table('cart'));
-        DB::table('cart')->insert($attributes);
-        // } else {
-        return redirect('/cart');
-        // return Inertia::render('Product', ['error' => 'Already In Cart']);
-        // }
-        // return redirect()->back();
+        
+        $uid = $attributes['user_id'];
+        $id = $attributes['product_id'];
+        $query = DB::select("SELECT * FROM cart WHERE user_id='$uid' and product_id='$id' AND purchase_id is NULL");
+        // $query = DB::table('cart')->select('*')
+        // ->where('product_id', '=', $id)
+        // ->where('user_id', '=', $uid)
+        // ->whereNull('purchase_id')
+        // ->get();
+        dd($query);
+        if (!$query) {
+            DB::table('cart')->insert($attributes);
+        } 
+        return redirect()->back();
     }
     public function update(Request $request, $id)
     {
@@ -88,12 +86,32 @@ class CartController extends Controller
             "DELETE FROM cart
             WHERE cart_id=='$id'"
         );
+        return redirect()->back();
     }
     public function delete(Request $request, $id)
     {
         DB::delete(
             "DELETE FROM cart
-            WHERE cart_id=='$id'"
+            WHERE cart_id='$id'"
         );
+        return redirect()->back();
+    }
+    public function purchase(Request $request, $id)
+    {   
+        $uid = Auth::id();
+        //query the total price
+        //create a purchase entry
+        //update all in the cart to have a purchase_id
+        $total = DB::select(
+            "SELECT SUM(c.item_count*p.price)
+            FROM product p
+            INNER JOIN cart c ON p.product_id = c.product_id
+            WHERE c.user_id='$uid' AND purchase_id is NULL");
+        dd($total);
+        DB::delete(
+            "DELETE FROM cart
+            WHERE cart_id='$id'"
+        );
+        return redirect()->back();
     }
 }

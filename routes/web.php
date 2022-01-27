@@ -16,7 +16,7 @@ use App\Http\Controllers\Auth\SignupController;
 
 // use App\Models\Items;
 
-Route::get('/', [ItemsController::class, 'index']);
+Route::get('/', [ItemsController::class, 'index'])->name('home');
 
 Route::get('/login', [LoginController::class, 'index'])->name('login');
 Route::post('/login', [LoginController::class, 'store']);
@@ -47,12 +47,13 @@ Route::middleware('auth')->group(function () {
     Route::get('/contact', [ContactController::class, 'index']);
     Route::post('/contact', [ContactController::class, 'store']);
     Route::get('/cart', [CartController::class, 'index'])->name('cart');
-    Route::post('/cart/del', [CartController::class, 'del'])->name('cart.del');
+    Route::get('/cart/{id}', [CartController::class, 'delete'])->name('cart.del');
+    Route::get('/cart/{id}', [CartController::class, 'update'])->name('cart.update');
     Route::post('/cart/add', [CartController::class, 'add'])->name('cart.add');
-
-    Route::post('/cart', [CartController::class, 'index'])->name('cart.add');
     // Route::post('/cart', [CartController::class, 'store'])->name('');
-    Route::get('/cart', [CartController::class, 'index'])->name('cart.del');
+    // Route::get('/cart', [CartController::class, 'index'])->name('cart.del');
+
+    Route::get('/purchase', [CartController::class, 'purchase'])->name('purchase');
 
 
     Route::get('/users', function () {

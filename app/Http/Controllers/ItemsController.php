@@ -24,6 +24,7 @@ class ItemsController extends Controller
         $items = DB::table('product')
             ->select('product.*', 'store.name as store_name')
             ->join('store', 'store.store_id', '=',  'product.store_id')
+            ->inRandomOrder()
             ->get();
         //     'SELECT p.product_id, p.name product_name, s.name store_name, p.img, p.price, s.store_id  
         // FROM product p 
@@ -103,7 +104,7 @@ class ItemsController extends Controller
                     return [
                         'img' => asset('storage/' . $item->img),
                         'product_name' => $item->name,
-                        'product_id' => $item->product,
+                        'product_id' => $item->product_id,
                         'store_id' => $item->store_id,
                         'price' => $item->price,
                         'store_name' => $item->store_name,
@@ -131,7 +132,7 @@ class ItemsController extends Controller
     public function storeItem(Request $request, $id)
     {
         $item = DB::select(
-            "SELECT p.product_id, p.name product_name, p.img, p.price, p.desc
+            "SELECT p.product_id, p.name product_name, p.img, p.price, p.desc, p.store_id
             FROM product p
             INNER JOIN store s ON p.store_id = s.store_id
             WHERE p.store_id='$id'

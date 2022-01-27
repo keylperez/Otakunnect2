@@ -82,7 +82,7 @@ const props = defineProps({
     error: Object,
 });
 const item = ref(props.items[0]);
-const form = useForm({ item_count: 0 });
+const form = useForm({ item_count: 1 });
 const submit = () => {
     if (usePage().props.value.auth) {
         form.transform((data) => ({

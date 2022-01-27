@@ -5,7 +5,7 @@
         </title>
     </Head>
     <Layout>
-        Store name: {{ $page.props.storeInfo[0].name }}
+        Store name: {{ storeInfo.name }}
         <CardItem
             v-for="item in items"
             :key="item.product_id"
@@ -20,6 +20,7 @@ import CardItem from "../Shared/CardItem.vue";
 export default {
     props: {
         items: Object,
+        storeInfo: Object
     },
     components:{
         CardItem,
