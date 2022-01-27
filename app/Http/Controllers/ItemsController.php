@@ -88,6 +88,8 @@ class ItemsController extends Controller
                         return [
                             'img' => asset('storage/' . $item->img),
                             'product_name' => $item->name,
+                            'product_id' => $item->product_id,
+                            'store_id' => $item->store_id,
                             'price' => $item->price,
                             'store_name' => $item->store_name,
                         ];
@@ -101,6 +103,8 @@ class ItemsController extends Controller
                     return [
                         'img' => asset('storage/' . $item->img),
                         'product_name' => $item->name,
+                        'product_id' => $item->product,
+                        'store_id' => $item->store_id,
                         'price' => $item->price,
                         'store_name' => $item->store_name,
                     ];
@@ -108,12 +112,15 @@ class ItemsController extends Controller
                 'prefItems' => $prefItems,
             ]);
         } else {
+            // dd($items);
             return Inertia::render('Home', [
                 // 'items' => $items
                 'items' => $items->map(function ($item) {
                     return [
                         'img' => asset('storage/' . $item->img),
                         'product_name' => $item->name,
+                        'product_id' => $item->product_id,
+                        'store_id' => $item->store_id,
                         'price' => $item->price,
                         'store_name' => $item->store_name,
                     ];

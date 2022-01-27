@@ -28,7 +28,7 @@ class ProductController extends Controller
 
                     "product_id" => $item->product_id,
                     "name" => $item->name,
-                    "img" => asset('storage/app/public/' . $item->img),
+                    "img" => asset('storage/' . $item->img),
                     "price" => $item->price,
                     "desc" => $item->desc,
                     "category_id" => $item->category_id,

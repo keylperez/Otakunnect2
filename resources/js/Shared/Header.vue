@@ -70,12 +70,16 @@
                             Contact
                         </Link>
                     </div>
+                    <div v-if="user">
+                        <Link
+                            :href="route('cart')"
+                            class="text-gray-500 group rounded-md inline-flex items-center text-base font-medium hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-light"
+                            aria-expanded="false"
+                        >
+                            Cart
+                        </Link>
+                    </div>
                 </nav>
-                <div>
-                    <Link :href="route('cart')">
-                        Cart
-                    </Link>
-                </div>
                 <div
                     v-if="user"
                     class="hidden md:flex items-center justify-end md:flex-1 lg:w-0"

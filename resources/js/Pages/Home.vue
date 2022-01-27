@@ -60,7 +60,6 @@ defineProps({
     prefItems: Object,
 });
 const bannerURL = ref("../../img/home/OtakunnectBanner.png");
-console.log(Ziggy);
 </script>
 
 <style></style>
