@@ -5,7 +5,7 @@
         </title>
     </Head>
     <Layout>
-        Store name: {{ storeInfo.name }}
+        Store name: {{ storeInfo[0].name }}
         <CardItem
             v-for="item in items"
             :key="item.product_id"

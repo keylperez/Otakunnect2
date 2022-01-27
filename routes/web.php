@@ -47,13 +47,13 @@ Route::middleware('auth')->group(function () {
     Route::get('/contact', [ContactController::class, 'index']);
     Route::post('/contact', [ContactController::class, 'store']);
     Route::get('/cart', [CartController::class, 'index'])->name('cart');
-    Route::get('/cart/{id}', [CartController::class, 'delete'])->name('cart.del');
-    Route::get('/cart/{id}', [CartController::class, 'update'])->name('cart.update');
+    Route::get('/cart/update_{id}_{count}', [CartController::class, 'update'])->name('cart.update');
+    Route::get('/cart/del_{id}', [CartController::class, 'delete'])->name('cart.del');
     Route::post('/cart/add', [CartController::class, 'add'])->name('cart.add');
     // Route::post('/cart', [CartController::class, 'store'])->name('');
     // Route::get('/cart', [CartController::class, 'index'])->name('cart.del');
 
-    Route::get('/purchase', [CartController::class, 'purchase'])->name('purchase');
+    Route::get('/purchase/{price}', [CartController::class, 'purchase'])->name('purchase');
 
 
     Route::get('/users', function () {

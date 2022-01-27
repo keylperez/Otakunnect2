@@ -39,9 +39,8 @@
                         class="flex items-center flex-1 mt-4 sm:justify-end sm:mt-0"
                     >
                         <div class="flex space-x-1">
-                            <button
-                                @click="item.item_count--"
-                                type="button"
+                            <Link
+                                :href="route('cart.update',{id:item.cart_id, count:item.item_count-1})"
                                 class="flex-shrink-0 p-1 text-gray-500 border border-gray-200 rounded-full"
                             >
                                 <svg
@@ -56,7 +55,7 @@
                                         clip-rule="evenodd"
                                     />
                                 </svg>
-                            </button>
+                            </Link>
 
                             <input
                                 type="number"
@@ -65,9 +64,8 @@
                                 class="w-12 p-1 text-center text-gray-500 border-none no-spinners"
                             />
 
-                            <button
-                                @click="item.item_count++"
-                                type="button"
+                            <Link
+                                :href="route('cart.update',{id:item.cart_id, count:item.item_count+1})"
                                 class="flex-shrink-0 p-1 text-gray-500 border border-gray-200 rounded-full"
                             >
                                 <svg
@@ -82,7 +80,7 @@
                                         clip-rule="evenodd"
                                     />
                                 </svg>
-                            </button>
+                            </Link>
                         </div>
 
                         <Link

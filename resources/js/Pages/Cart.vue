@@ -44,7 +44,7 @@
                                             >
                                             <span
                                                 class="font-semibold text-sm"
-                                                >{{ total }}</span
+                                                >{{ total[0]['total'] }}</span
                                             >
                                         </div>
                                         <div class="">
@@ -84,13 +84,14 @@
                                             class="flex font-semibold justify-between py-6 text-sm uppercase"
                                         >
                                             <span>Total cost</span>
-                                            <span>{{ total }}</span>
+                                            <span>{{ total[0]['total'] }}</span>
                                         </div>
-                                        <button
+                                        <Link 
+                                        :href="route('purchase',{price:total[0]['total']})"
                                             class="bg-indigo-500 font-semibold hover:bg-indigo-600 py-3 text-sm text-white uppercase w-full"
                                         >
                                             Checkout
-                                        </button>
+                                        </Link>
                                     </div>
                                 </div>
                                 <!-- <Link href="/purchase" class="flex justify-center items-center px-6 py-3 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-indigo-600 hover:bg-indigo-700">Checkout</Link> -->
@@ -114,7 +115,7 @@ import { usePage } from "@inertiajs/inertia-vue3";
 import CartItem from "../Shared/CartItem.vue";
 defineProps({
     cart: Array,
-    total: Number,
+    total: Object,
 });
 </script>
 

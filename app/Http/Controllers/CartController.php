@@ -28,7 +28,7 @@ class CartController extends Controller
         //     WHERE user_id='$uid' AND purchase_id is NULL"
         // );
         $total = DB::select(
-            "SELECT SUM(c.item_count*p.price)
+            "SELECT SUM(c.item_count*p.price) AS total
             FROM cart c
             INNER JOIN product p ON p.product_id=c.product_id
             WHERE user_id='$uid' AND purchase_id is NULL"
@@ -74,44 +74,44 @@ class CartController extends Controller
         // ->where('user_id', '=', $uid)
         // ->whereNull('purchase_id')
         // ->get();
-        dd($query);
+        // dd($query);
         if (!$query) {
             DB::table('cart')->insert($attributes);
         } 
         return redirect()->back();
     }
-    public function update(Request $request, $id)
+    public function update(Request $request, $id, $count)
     {
-        DB::delete(
-            "DELETE FROM cart
-            WHERE cart_id=='$id'"
-        );
+        // dd($count);
+        // if($count>0){
+            DB::update(
+                "UPDATE cart
+                SET item_count='$count'
+                WHERE cart_id='$id'"
+            );
+        // }
         return redirect()->back();
     }
     public function delete(Request $request, $id)
     {
         DB::delete(
             "DELETE FROM cart
-            WHERE cart_id='$id'"
-        );
+            WHERE cart_id='$id'");
         return redirect()->back();
     }
-    public function purchase(Request $request, $id)
+    public function purchase(Request $request, $price)
     {   
         $uid = Auth::id();
-        //query the total price
         //create a purchase entry
         //update all in the cart to have a purchase_id
-        $total = DB::select(
-            "SELECT SUM(c.item_count*p.price)
-            FROM product p
-            INNER JOIN cart c ON p.product_id = c.product_id
-            WHERE c.user_id='$uid' AND purchase_id is NULL");
-        dd($total);
-        DB::delete(
-            "DELETE FROM cart
-            WHERE cart_id='$id'"
-        );
+        DB::insert("INSERT INTO purchase(price, user_id) VALUES($price, $uid)");
+        $id = DB::select("SELECT purchase_id FROM purchase WHERE price='$price' AND user_id='$uid' ORDER BY purchase_date desc Limit 1");
+        // dd($id[0]->purchase_id);
+        $id = $id[0]->purchase_id;
+        DB::select(
+            "UPDATE cart
+            SET purchase_id='$id'
+            WHERE user_id='$uid' AND purchase_id is NULL");
         return redirect()->back();
     }
 }
