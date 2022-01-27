@@ -14,6 +14,10 @@
                         :key="item.product_id"
                         :item="item"
                     />
+                        <Link
+                        :href="route('purchase')">
+                            Purchase
+                        </Link>
                 </div>
                 <div
                     v-else

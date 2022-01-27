@@ -76,7 +76,7 @@
 
                                     <input
                                         type="number"
-                                        v-model="total"
+                                        v-model="props.item.item_count"
                                         min="0"
                                         class="w-12 p-1 text-center text-gray-500 border-none no-spinners"
                                     />
@@ -101,7 +101,7 @@
                                 </div>
 
                                 <Link
-                                    :href="route('cart.del')"
+                                    :href="route('cart.del', {id:item.cart_id})"
                                     class="flex-shrink-0 p-2 ml-8 text-gray-600 bg-gray-100 rounded-full"
                                 >
                                     <svg

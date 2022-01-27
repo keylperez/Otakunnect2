@@ -152,7 +152,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
 
   return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Link, {
     href: _ctx.route('store', {
-      item: $props.item.store_id
+      id: $props.item.store_id
     })
   }, {
     "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
@@ -182,13 +182,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _Stores_vue_vue_type_template_id_bb02dcca__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Stores.vue?vue&type=template&id=bb02dcca */ "./resources/js/Pages/Stores.vue?vue&type=template&id=bb02dcca");
 /* harmony import */ var _Stores_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Stores.vue?vue&type=script&lang=js */ "./resources/js/Pages/Stores.vue?vue&type=script&lang=js");
-/* harmony import */ var D_Github_laravel_Otakunnect_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
+/* harmony import */ var C_Users_Krisyam_Desktop_Otakunnect2_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
 
 
 
 
 ;
-const __exports__ = /*#__PURE__*/(0,D_Github_laravel_Otakunnect_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__["default"])(_Stores_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_Stores_vue_vue_type_template_id_bb02dcca__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"resources/js/Pages/Stores.vue"]])
+const __exports__ = /*#__PURE__*/(0,C_Users_Krisyam_Desktop_Otakunnect2_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__["default"])(_Stores_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_Stores_vue_vue_type_template_id_bb02dcca__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"resources/js/Pages/Stores.vue"]])
 /* hot reload */
 if (false) {}
 
@@ -209,13 +209,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _StoreItem_vue_vue_type_template_id_1d27cc30__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./StoreItem.vue?vue&type=template&id=1d27cc30 */ "./resources/js/Shared/StoreItem.vue?vue&type=template&id=1d27cc30");
 /* harmony import */ var _StoreItem_vue_vue_type_script_setup_true_lang_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./StoreItem.vue?vue&type=script&setup=true&lang=js */ "./resources/js/Shared/StoreItem.vue?vue&type=script&setup=true&lang=js");
-/* harmony import */ var D_Github_laravel_Otakunnect_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
+/* harmony import */ var C_Users_Krisyam_Desktop_Otakunnect2_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
 
 
 
 
 ;
-const __exports__ = /*#__PURE__*/(0,D_Github_laravel_Otakunnect_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__["default"])(_StoreItem_vue_vue_type_script_setup_true_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_StoreItem_vue_vue_type_template_id_1d27cc30__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"resources/js/Shared/StoreItem.vue"]])
+const __exports__ = /*#__PURE__*/(0,C_Users_Krisyam_Desktop_Otakunnect2_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__["default"])(_StoreItem_vue_vue_type_script_setup_true_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_StoreItem_vue_vue_type_template_id_1d27cc30__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"resources/js/Shared/StoreItem.vue"]])
 /* hot reload */
 if (false) {}
 
