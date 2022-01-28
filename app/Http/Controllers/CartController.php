@@ -78,7 +78,7 @@ class CartController extends Controller
         if (!$query) {
             DB::table('cart')->insert($attributes);
         }
-        return redirect()->back();
+        return redirect()->back()->with('cart', 'Successfully added to Cart');;
     }
     public function update(Request $request, $id, $count)
     {
@@ -106,7 +106,8 @@ class CartController extends Controller
         //create a purchase entry
         //update all in the cart to have a purchase_id
         DB::insert("INSERT INTO purchase(price, user_id) VALUES($price, $uid)");
-        $id = DB::select("SELECT purchase_id FROM purchase WHERE price='$price' AND user_id='$uid' ORDER BY purchase_date desc Limit 1");
+
+        $id = DB::select("SELECT purchase_id FROM purchase WHERE price='$price' AND user_id='$uid' ORDER BY created_at desc Limit 1");
         // dd($id[0]->purchase_id);
         $id = $id[0]->purchase_id;
         DB::select(
@@ -114,6 +115,6 @@ class CartController extends Controller
             SET purchase_id='$id'
             WHERE user_id='$uid' AND purchase_id is NULL"
         );
-        return redirect()->back();
+        return redirect()->back()->with('success', 'Transaction completed successfully');
     }
 }

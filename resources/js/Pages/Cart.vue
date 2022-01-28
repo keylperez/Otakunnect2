@@ -47,7 +47,7 @@
                                                 >{{ total[0]["total"] }}</span
                                             >
                                         </div>
-                                        <div class="">
+                                        <!-- <div class="">
                                             <label
                                                 class="font-medium inline-block mb-3 text-sm uppercase"
                                                 >Shipping</label
@@ -77,7 +77,7 @@
                                             class="bg-red-500 hover:bg-red-600 px-5 py-2 text-sm text-white uppercase"
                                         >
                                             Apply
-                                        </button>
+                                        </button> -->
                                     </div>
                                     <div class="border-t mt-8 self-end">
                                         <div
@@ -92,7 +92,7 @@
                                                     price: total[0]['total'],
                                                 })
                                             "
-                                            class="bg-indigo-500 font-semibold hover:bg-indigo-600 py-3 text-sm text-white uppercase w-full"
+                                            class="bg-red-400 font-semibold hover:bg-red-200 p-3 text-sm text-white uppercase w-full"
                                         >
                                             Checkout
                                         </Link>
@@ -107,7 +107,10 @@
                     v-else
                     class="relative inset-0 flex items-center justify-center"
                 >
-                    <h1 class="text-5xl text-center flex-1">CART IS EMPTY</h1>
+                    <h1 class="text-5xl text-center flex-1">
+                        CART IS EMPTY
+                        <p>{{ $page.props.flash.success }}</p>
+                    </h1>
                 </div>
             </div>
         </section>
@@ -115,7 +118,6 @@
 </template>
 
 <script setup>
-import { usePage } from "@inertiajs/inertia-vue3";
 import CartItem from "../Shared/CartItem.vue";
 defineProps({
     cart: Array,

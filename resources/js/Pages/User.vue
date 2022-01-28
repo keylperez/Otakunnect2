@@ -91,7 +91,7 @@
                             </div>
                             <div
                                 :style="{
-                                    'background-image': `url(${avatarURL})`,
+                                    'background-image': `url(${$page.props.auth.user.image})`,
                                 }"
                                 class="bg-cover w-60 h-60 rounded-full bg-gray-800 border-8 border-white"
                             />
@@ -147,84 +147,15 @@
                         </button> -->
                     </form>
                     <div>
+                        <div class="m-5 mt-10">
+                            <h1 class="text-5xl">Purchases:</h1>
+                        </div>
                         <div class="m-10">
-                            Lorem ipsum dolor, sit amet consectetur adipisicing
-                            elit. Esse totam laudantium, ab qui iste harum
-                            fugiat deserunt natus, recusandae molestiae
-                            voluptates non inventore tempora fuga debitis quidem
-                            voluptatum voluptate minus maxime ducimus!
-                            Voluptates tempora nihil quaerat, optio assumenda
-                            expedita? Adipisci, ipsa soluta reiciendis eum
-                            beatae delectus maxime numquam ullam illo a incidunt
-                            voluptates distinctio sint animi, tenetur dolorem
-                            quo debitis aut expedita provident nihil architecto
-                            repudiandae. Laudantium, nobis? Perferendis ut,
-                            tempora expedita sapiente natus sint saepe accusamus
-                            repellendus repudiandae recusandae veritatis quis?
-                            Tenetur voluptate quo illum, illo alias rem, aperiam
-                            numquam magni et pariatur maiores, non dolorem.
-                            Dolor veniam dolores quod vero aliquid earum dicta
-                            impedit odio dolore voluptatibus, esse numquam
-                            pariatur natus totam aut sapiente rem non inventore
-                            est ipsam obcaecati. Commodi id odit aliquid
-                            laboriosam alias iste provident, dolores ducimus
-                            soluta, a praesentium debitis, magni expedita rem
-                            tenetur? Harum dolorem quia illum architecto dolore
-                            eos aperiam tenetur sapiente repudiandae recusandae,
-                            nisi nesciunt reiciendis obcaecati est delectus
-                            facere incidunt dolores tempora vero perspiciatis a.
-                            Aliquid non ducimus voluptatibus eum omnis ullam,
-                            velit fugiat error vel, accusamus quod pariatur
-                            aliquam veritatis consequuntur alias! Neque aliquam
-                            reiciendis unde dolorem accusamus provident saepe,
-                            iste ratione, doloremque dolores repudiandae
-                            suscipit inventore nihil nisi placeat non temporibus
-                            quasi labore voluptates porro accusantium illo?
-                            Ipsum cupiditate quia libero assumenda! Odit
-                            inventore, blanditiis reiciendis nam porro voluptate
-                            repellendus architecto hic numquam neque sequi saepe
-                            minima in natus magnam similique ad suscipit unde
-                            ipsam assumenda excepturi fuga, mollitia ut. Unde
-                            delectus numquam rem sit quam cumque ipsum, labore
-                            nihil cum, iusto obcaecati ex repellendus sunt culpa
-                            nisi. Quis ullam maiores, minus expedita mollitia
-                            totam molestiae, dolores perferendis vero quaerat
-                            consectetur quibusdam ut eaque odit quae beatae
-                            magnam? Dolorum vero amet saepe architecto adipisci
-                            sit natus eius? Ut eos earum deserunt. Reiciendis
-                            quidem maiores quisquam incidunt quia reprehenderit
-                            qui iusto et enim, accusantium totam ducimus,
-                            placeat deserunt id. Tenetur consectetur neque quae,
-                            sit odio voluptate similique corporis numquam.
-                            Tempora et accusantium voluptatibus non cupiditate
-                            saepe est porro doloribus excepturi. Exercitationem
-                            error maxime quam suscipit similique? Minus laborum
-                            architecto facere tempore reiciendis exercitationem
-                            fugit cumque, excepturi accusantium dolorem.
-                            Voluptas est, aliquam maiores reiciendis doloremque
-                            nobis quasi sint modi, soluta inventore beatae ut
-                            voluptates facilis aperiam accusamus, blanditiis
-                            consequatur vero ex sapiente harum. Natus error
-                            quia, soluta alias eum saepe, cumque adipisci libero
-                            minima, id officia rerum! Reprehenderit accusantium
-                            assumenda asperiores ipsam animi, quis eveniet minus
-                            nemo, quod ad itaque soluta! Nisi consequuntur quod
-                            praesentium, est facilis nihil ea deleniti labore,
-                            explicabo alias laboriosam asperiores dolorem
-                            recusandae! Obcaecati distinctio ea quaerat
-                            blanditiis ex commodi quas dolores voluptas nemo
-                            exercitationem harum voluptates dolore, possimus
-                            illum impedit labore voluptatum itaque quia
-                            laboriosam atque animi culpa tempora. Ipsam ullam
-                            adipisci, modi rerum laboriosam obcaecati tempora
-                            perspiciatis aut tenetur saepe officiis, praesentium
-                            dolore optio voluptatum doloremque quae totam
-                            explicabo aliquid aliquam officia nobis sit
-                            doloribus vel ea. Et fugit repellendus dignissimos
-                            rerum corporis quos assumenda itaque reiciendis
-                            perspiciatis! Neque vero exercitationem hic
-                            deserunt. Sequi possimus asperiores quas fugiat quis
-                            illum, velit consectetur animi labore?
+                            <Purchase
+                                v-for="item in items"
+                                :key="item.purchase_id"
+                                :item="item"
+                            />
                         </div>
                     </div>
                 </div>
@@ -236,10 +167,13 @@
 <script setup>
 import { ref } from "vue";
 import { useForm } from "@inertiajs/inertia-vue3";
+import Purchase from "../Shared/Purchase.vue";
 
 const bannerURL = ref(".././img/home/OtakunnectBanner.png");
 const avatarURL = ref(".././img/login/-11601848172olq80epz0r.png");
 const filename = ref("");
+
+defineProps({ items: Array });
 
 const form = useForm({
     avatar: null,

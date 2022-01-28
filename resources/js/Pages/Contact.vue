@@ -11,36 +11,13 @@
                 <div class="flex flex-wrap -mx-3">
                     <div class="px-3 mb-6 md:mb-0">
                         <label
-                            class="
-                                block
-                                uppercase
-                                tracking-wide
-                                text-gray-700 text-xs
-                                font-bold
-                                mb-2
-                                w-full
-                            "
+                            class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2 w-full"
                             for="name"
                         >
                             Full Name
                         </label>
                         <input
-                            class="
-                                appearance-none
-                                block
-                                w-full
-                                bg-gray-200
-                                text-gray-700
-                                border border-gray-200
-                                rounded
-                                py-3
-                                px-4
-                                leading-tight
-                                focus:outline-none
-                                focus:bg-white
-                                focus:border-gray-500
-                                duration-100
-                            "
+                            class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500 duration-100"
                             id="name"
                             name="name"
                             v-model="form.name"
@@ -59,37 +36,13 @@
                 <div class="flex flex-wrap -mx-3">
                     <div class="px-3">
                         <label
-                            class="
-                                block
-                                uppercase
-                                tracking-wide
-                                text-gray-700 text-xs
-                                font-bold
-                                mb-2
-                                w-full
-                            "
+                            class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2 w-full"
                             for="email"
                         >
                             E-mail
                         </label>
                         <input
-                            class="
-                                appearance-none
-                                block
-                                w-full
-                                bg-gray-200
-                                text-gray-700
-                                border border-gray-200
-                                rounded
-                                py-3
-                                px-4
-                                mb-3
-                                leading-tight
-                                focus:outline-none
-                                focus:bg-white
-                                focus:border-gray-500
-                                duration-100
-                            "
+                            class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500 duration-100"
                             id="email"
                             type="email"
                             name="email"
@@ -107,37 +60,13 @@
                 <div class="flex flex-wrap -mx-3">
                     <div class="px-3">
                         <label
-                            class="
-                                block
-                                uppercase
-                                tracking-wide
-                                text-gray-700 text-xs
-                                font-bold
-                                mb-2
-                                w-full
-                            "
+                            class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2 w-full"
                             for="subject"
                         >
                             Subject
                         </label>
                         <input
-                            class="
-                                appearance-none
-                                block
-                                w-full
-                                bg-gray-200
-                                text-gray-700
-                                border border-gray-200
-                                rounded
-                                py-3
-                                px-4
-                                mb-3
-                                leading-tight
-                                focus:outline-none
-                                focus:bg-white
-                                focus:border-gray-500
-                                duration-100
-                            "
+                            class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500 duration-100"
                             id="subject"
                             type="subject"
                             name="subject"
@@ -156,41 +85,13 @@
                 <div class="flex flex-wrap -mx-3">
                     <div class="px-3">
                         <label
-                            class="
-                                block
-                                w-full
-                                uppercase
-                                tracking-wide
-                                text-gray-700 text-xs
-                                font-bold
-                                mb-2
-                                duration-100
-                            "
+                            class="block w-full uppercase tracking-wide text-gray-700 text-xs font-bold mb-2 duration-100"
                             for="message"
                         >
                             Message
                         </label>
                         <textarea
-                            class="
-                                no-resize
-                                appearance-none
-                                block
-                                w-full
-                                bg-gray-200
-                                text-gray-700
-                                border border-gray-200
-                                rounded
-                                py-3
-                                px-4
-                                mb-3
-                                leading-tight
-                                focus:outline-none
-                                focus:bg-white
-                                focus:border-gray-500
-                                h-48
-                                resize-none
-                                duration-100
-                            "
+                            class="no-resize appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500 h-48 resize-none duration-100"
                             id="message"
                             name="message"
                             v-model="form.message"
@@ -205,20 +106,10 @@
                     </div>
                 </div>
                 <div class="md:flex md:items-center">
+                    <p>{{ feedback }}</p>
                     <div class="md:w-1/3">
                         <button
-                            class="
-                                shadow
-                                bg-quinary
-                                hover:bg-quinary-light
-                                focus:shadow-outline focus:outline-none
-                                text-white
-                                font-bold
-                                py-2
-                                px-4
-                                rounded
-                                duration-100
-                            "
+                            class="shadow bg-quinary hover:bg-quinary-light focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded duration-100"
                             type="submit"
                             :disabled="form.processing"
                         >
@@ -233,6 +124,9 @@
 
 <script setup>
 import { useForm, usePage } from "@inertiajs/inertia-vue3";
+import { ref } from "vue";
+
+const feedback = ref("");
 
 const form = useForm({
     name: `${usePage().props.value.auth.user.name}`,
@@ -244,5 +138,11 @@ const form = useForm({
 
 const submit = () => {
     form.post("/contact");
+    nullForm();
+};
+const nullForm = () => {
+    form.subject = "";
+    form.message = "";
+    feedback.value = "Message Sent";
 };
 </script>

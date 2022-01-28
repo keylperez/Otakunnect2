@@ -7,7 +7,7 @@
         >
             <div class="flex flex-wrap justify-center">
                 <ul class="flex items-center space-x-4 text-quinary">
-                    &copy; OtaKunnect by keylperez, krisyam, rhalf, S.A.I.X.
+                    &copy; OtaKunnect by keylperez, krisyam, Vonsignia, S.A.I.X.
                 </ul>
             </div>
             <div class="flex justify-center mt-4 lg:mt-0">

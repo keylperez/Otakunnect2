@@ -18,8 +18,8 @@ class SignupController extends Controller
     {
         $attributes = $request->validate([
             'name' => 'required',
-            'username' => 'required',
-            'email' => ['required', 'email'],
+            'username' => 'required|unique:users',
+            'email' => 'required|email|unique:users',
             'password' => 'required',
         ]);
 

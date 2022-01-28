@@ -19,7 +19,7 @@ class CreateUsersTable extends Migration
             $table->string('username', 100)->unique();
             $table->string('email', 100)->unique();
             $table->string('password', 100);
-            $table->string('image')->default('user.png');
+            $table->string('image')->default('user/thumb_15951118880user.png');
             $table->char('phone', 11)->nullable();
             $table->enum('auth_level', ['Admin', 'Store', 'User'])->default('User');
             $table->integer('store_id', false, true)->length(10)->nullable();

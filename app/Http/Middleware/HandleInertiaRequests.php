@@ -46,9 +46,16 @@ class HandleInertiaRequests extends Middleware
                     'phone' => Auth::user()->phone,
                     'store_id' => Auth::user()->store_id,
                     'id' => Auth::id(),
+                    'image' => asset('storage/' . Auth::user()->image),
                     'auth_level' => Auth::user()->auth_level
                 ]
-            ] : null
+            ] : null,
+            'flash' => function () use ($request) {
+                return [
+                    'success' => $request->session()->get('success'),
+                    'cart' => $request->session()->get('cart'),
+                ];
+            },
         ]);
     }
 }

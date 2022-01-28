@@ -15,12 +15,13 @@ class CreatePurchaseTable extends Migration
     {
         Schema::create('purchase', function (Blueprint $table) {
             $table->increments('purchase_id');
-            $table->dateTime('purchase_date');
             $table->dateTime('claim_date')->nullable();
             $table->enum('claim_confirm', ['Unclaimed', 'Claimed'])->default('Unclaimed');
             $table->decimal('price', 10, 2);
             $table->integer('user_id', false, true)->length(10);
             $table->foreign('user_id')->references('user_id')->on('users');
+            $table->timestamp('created_at')->useCurrent();
+            $table->timestamp('updated_at')->useCurrent()->useCurrentOnUpdate();
         });
     }
 

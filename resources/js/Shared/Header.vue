@@ -70,7 +70,7 @@
                             Contact
                         </Link>
                     </div>
-                    <div v-if="user">
+                    <div>
                         <Link
                             :href="route('cart')"
                             class="text-gray-500 group rounded-md inline-flex items-center text-base font-medium hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-light"
@@ -79,14 +79,18 @@
                             Cart
                         </Link>
                     </div>
-                    <div v-if="$page.props.auth.user.auth_level === 'Admin'">
-                        <Link
-                            href="/users"
-                            class="text-gray-500 group rounded-md inline-flex items-center text-base font-medium hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-light"
-                            aria-expanded="false"
+                    <div v-if="$page.props.auth">
+                        <div
+                            v-if="$page.props.auth.user.auth_level === 'Admin'"
                         >
-                            Users
-                        </Link>
+                            <Link
+                                href="/users"
+                                class="text-gray-500 group rounded-md inline-flex items-center text-base font-medium hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-light"
+                                aria-expanded="false"
+                            >
+                                Users
+                            </Link>
+                        </div>
                     </div>
                 </nav>
                 <div

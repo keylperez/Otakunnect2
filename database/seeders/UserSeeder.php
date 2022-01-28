@@ -23,7 +23,8 @@ class UserSeeder extends Seeder
                 'name' => 'admin',
                 'email' => 'admin@gmail.com',
                 'password' => Hash::make('admin'),
-                'phone' => NULL,
+                'image' => 'user/thumb_15951118880user.png',
+                'phone' => '09' . random_int(100000000, 999999999),
                 'auth_level' => 'Admin',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
@@ -33,7 +34,8 @@ class UserSeeder extends Seeder
                 'name' => 'user',
                 'email' => 'user@gmail.com',
                 'password' => Hash::make('user'),
-                'phone' => NULL,
+                'image' => 'user/thumb_15951118880user.png',
+                'phone' => '09' . random_int(100000000, 999999999),
                 'auth_level' => 'User',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
@@ -43,7 +45,8 @@ class UserSeeder extends Seeder
                 'name' => 'ayam',
                 'email' => 'kris_admin@gmail.com',
                 'password' => Hash::make('admin'),
-                'phone' => NULL,
+                'image' => 'user/thumb_15951118880user.png',
+                'phone' => '09' . random_int(100000000, 999999999),
                 'auth_level' => 'Admin',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
@@ -53,7 +56,8 @@ class UserSeeder extends Seeder
                 'name' => 'nubayam',
                 'email' => 'kristian.ayam@gmail.com',
                 'password' => Hash::make('pass'),
-                'phone' => NULL,
+                'image' => 'user/thumb_15951118880user.png',
+                'phone' => '09' . random_int(100000000, 999999999),
                 'auth_level' => 'User',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
@@ -63,7 +67,9 @@ class UserSeeder extends Seeder
                 'name' => 'keyl',
                 'email' => 'keylperez@gmail.com',
                 'password' => Hash::make('pass'),
-                'phone' => NULL, 'auth_level' => 'User',
+                'image' => 'user/-11601848172olq80epz0r.png',
+                'phone' => '09' . random_int(100000000, 999999999),
+                'auth_level' => 'User',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             )
