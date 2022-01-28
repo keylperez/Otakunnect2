@@ -51,14 +51,14 @@
                             Stores
                         </Link>
                     </div>
-                    <div class="relative">
+                    <!-- <div class="relative">
                         <Link
                             href="/category"
                             class="text-gray-500 group rounded-md inline-flex items-center text-base font-medium hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-light"
                         >
                             Category
                         </Link>
-                    </div>
+                    </div> -->
 
                     <div class="relative">
                         <!-- Item active: "text-gray-900", Item inactive: "text-gray-500" -->

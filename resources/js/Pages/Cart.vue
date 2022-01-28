@@ -44,7 +44,7 @@
                                             >
                                             <span
                                                 class="font-semibold text-sm"
-                                                >{{ total[0]['total'] }}</span
+                                                >{{ total[0]["total"] }}</span
                                             >
                                         </div>
                                         <div class="">
@@ -84,10 +84,14 @@
                                             class="flex font-semibold justify-between py-6 text-sm uppercase"
                                         >
                                             <span>Total cost</span>
-                                            <span>{{ total[0]['total'] }}</span>
+                                            <span>{{ total[0]["total"] }}</span>
                                         </div>
-                                        <Link 
-                                        :href="route('purchase',{price:total[0]['total']})"
+                                        <Link
+                                            :href="
+                                                route('purchase', {
+                                                    price: total[0]['total'],
+                                                })
+                                            "
                                             class="bg-indigo-500 font-semibold hover:bg-indigo-600 py-3 text-sm text-white uppercase w-full"
                                         >
                                             Checkout
@@ -101,7 +105,7 @@
                 </div>
                 <div
                     v-else
-                    class="relative inset-0 flex items-center justify-center h-screen"
+                    class="relative inset-0 flex items-center justify-center"
                 >
                     <h1 class="text-5xl text-center flex-1">CART IS EMPTY</h1>
                 </div>

@@ -1,54 +1,23 @@
 <template>
     <footer
-        class="
-            flex-none
-            border-t border-gray-200
-            relative
-            bottom-0
-            w-full
-            bg-white
-        "
+        class="flex-none border-t border-gray-200 relative bottom-0 w-full bg-white"
     >
         <div
-            class="
-                container
-                flex flex-wrap
-                items-center
-                justify-center
-                px-4
-                py-8
-                mx-auto
-                lg:justify-between
-            "
+            class="container flex flex-wrap items-center justify-center px-4 py-8 mx-auto lg:justify-between"
         >
             <div class="flex flex-wrap justify-center">
                 <ul class="flex items-center space-x-4 text-quinary">
-                    <Link href="/" class="hover:text-primary-light duration-200"
-                        >Home</Link
-                    >
-                    <Link href="/store" class="hover:text-primary duration-200"
-                        >Store</Link
-                    >
-                    <Link
-                        href="/category"
-                        class="hover:text-primary duration-200"
-                        >Category</Link
-                    >
-                    <Link
-                        href="/contact"
-                        class="hover:text-primary duration-200"
-                        >Contact</Link
-                    >
+                    &copy; OtaKunnect by keylperez, krisyam, rhalf, S.A.I.X.
                 </ul>
             </div>
             <div class="flex justify-center mt-4 lg:mt-0">
-                <a>
+                <a href="https://web.facebook.com/THEkeylperez">
                     <svg
                         fill="currentColor"
                         stroke-linecap="round"
                         stroke-linejoin="round"
                         stroke-width="2"
-                        class="w-6 h-6 text-blue-600"
+                        class="w-6 h-6 text-blue-600 hover:scale-110 transition-all"
                         viewBox="0 0 24 24"
                     >
                         <path
@@ -56,13 +25,13 @@
                         ></path>
                     </svg>
                 </a>
-                <a class="ml-3">
+                <a href="https://twitter.com/keyl_perez" class="ml-3">
                     <svg
                         fill="currentColor"
                         stroke-linecap="round"
                         stroke-linejoin="round"
                         stroke-width="2"
-                        class="w-6 h-6 text-blue-300"
+                        class="w-6 h-6 text-blue-300 hover:scale-110 transition-all"
                         viewBox="0 0 24 24"
                     >
                         <path
@@ -70,14 +39,14 @@
                         ></path>
                     </svg>
                 </a>
-                <a class="ml-3">
+                <a href="https://www.instagram.com/keyl_perez/" class="ml-3">
                     <svg
                         fill="none"
                         stroke="currentColor"
                         stroke-linecap="round"
                         stroke-linejoin="round"
                         stroke-width="2"
-                        class="w-6 h-6 text-pink-400"
+                        class="w-6 h-6 text-pink-400 hover:scale-110 transition-all"
                         viewBox="0 0 24 24"
                     >
                         <rect
@@ -100,7 +69,7 @@
                         stroke-linecap="round"
                         stroke-linejoin="round"
                         stroke-width="0"
-                        class="w-6 h-6 text-blue-500"
+                        class="w-6 h-6 text-blue-500 hover:scale-110 transition-all"
                         viewBox="0 0 24 24"
                     >
                         <path
