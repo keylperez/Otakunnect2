@@ -20,7 +20,7 @@
                 }"
             >
                 <div v-if="$page.props.auth" class="mx-5">
-                    <div class="mx-5">
+                    <div class="mx-5" v-if="prefItems">
                         <div class="pt-10">
                             <h1 class="text-6xl">Preferred Items</h1>
                         </div>

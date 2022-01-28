@@ -79,39 +79,20 @@
                             Cart
                         </Link>
                     </div>
+                    <div v-if="$page.props.auth.user.auth_level === 'Admin'">
+                        <Link
+                            href="/users"
+                            class="text-gray-500 group rounded-md inline-flex items-center text-base font-medium hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-light"
+                            aria-expanded="false"
+                        >
+                            Users
+                        </Link>
+                    </div>
                 </nav>
                 <div
                     v-if="user"
                     class="hidden md:flex items-center justify-end md:flex-1 lg:w-0"
                 >
-                    <!-- <Link href="/user"
-                    <label
-                        for="user"
-                        class="
-                            whitespace-nowrap
-                            text-base
-                            font-medium
-                            text-center text-gray-800
-                            hover:text-gray-900
-                            hover:font-semibold
-                            hover:text-md
-                            hover:drop-shadow-xl
-                            focus:outline-none
-                            focus:ring-2
-                            focus:ring-offset-2
-                            focus:ring-primary-light
-                            duration-200
-                        "
-                    >
-                        <input
-                            v-model="test"
-                            type="checkbox"
-                            id="user"
-                            href="/user"
-                            hidden
-                        />
-                        {{ user.user.username }}
-                    </label> -->
                     <Link
                         href="/user"
                         class="whitespace-nowrap text-base font-medium text-center text-gray-800 hover:text-gray-900 hover:font-semibold hover:text-md hover:drop-shadow-xl focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-light duration-200"

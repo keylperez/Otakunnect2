@@ -65,7 +65,7 @@ class CartController extends Controller
             'item_count' => 'required',
             'product_id' => 'required'
         ]);
-        
+
         $uid = $attributes['user_id'];
         $id = $attributes['product_id'];
         $query = DB::select("SELECT * FROM cart WHERE user_id='$uid' and product_id='$id' AND purchase_id is NULL");
@@ -77,18 +77,18 @@ class CartController extends Controller
         // dd($query);
         if (!$query) {
             DB::table('cart')->insert($attributes);
-        } 
+        }
         return redirect()->back();
     }
     public function update(Request $request, $id, $count)
     {
         // dd($count);
         // if($count>0){
-            DB::update(
-                "UPDATE cart
+        DB::update(
+            "UPDATE cart
                 SET item_count='$count'
                 WHERE cart_id='$id'"
-            );
+        );
         // }
         return redirect()->back();
     }
@@ -96,11 +96,12 @@ class CartController extends Controller
     {
         DB::delete(
             "DELETE FROM cart
-            WHERE cart_id='$id'");
+            WHERE cart_id='$id'"
+        );
         return redirect()->back();
     }
     public function purchase(Request $request, $price)
-    {   
+    {
         $uid = Auth::id();
         //create a purchase entry
         //update all in the cart to have a purchase_id
@@ -111,7 +112,8 @@ class CartController extends Controller
         DB::select(
             "UPDATE cart
             SET purchase_id='$id'
-            WHERE user_id='$uid' AND purchase_id is NULL");
+            WHERE user_id='$uid' AND purchase_id is NULL"
+        );
         return redirect()->back();
     }
 }
